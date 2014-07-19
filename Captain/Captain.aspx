@@ -6,94 +6,167 @@
 <head runat="server">
     <title></title>
     <style type="text/css">
-        #Button1
+        .style1
         {
-            width: 64px;
+            width: 49%;
+            margin-bottom: 0px;
+        }
+        .style2
+        {
+            width: 158px;
+        }
+        .style3
+        {
+            color: #0066FF;
+            font-size: x-large;
+            font-family: "Times New Roman";
+        }
+        .style4
+        {
+            width: 100%;
+        }
+        .style5
+        {
+            width: 150px;
+        }
+        .style6
+        {
+            font-size: xx-large;
+            color: #3399FF;
+        }
+        .style7
+        {
+            width: 150px;
+            height: 23px;
+        }
+        .style8
+        {
+            height: 23px;
         }
     </style>
 </head>
 <body>
     <form id="form1" runat="server">
-    <div style="border-style: inset; border-width: thin; height: 343px; width: 567px;">
-    
-        <asp:Label ID="Label1" runat="server" Font-Size="Larger" 
-            Text="Upload Game Results"></asp:Label>
-        <br />
-        <br />
-        <asp:Label ID="Label2" runat="server" Text="League"></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:DropDownList ID="DropDownList1" runat="server" Height="17px" Width="218px">
-        </asp:DropDownList>
-        <br />
-        <br />
-        Game&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:DropDownList ID="DropDownList2" runat="server" Height="17px" Width="219px">
-        </asp:DropDownList>
-        <br />
-        <br />
-        <asp:Label ID="Label4" runat="server" Text="Opponent"></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:DropDownList ID="DropDownList3" runat="server" Height="17px" Width="219px">
-        </asp:DropDownList>
-        <br />
-        <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Label ID="Label5" runat="server" Font-Size="Larger" Text="Score"></asp:Label>
-        <br />
-        <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Label ID="Label6" runat="server" Text="Team"></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Label ID="Label7" runat="server" Text="Opponent"></asp:Label>
-        <br />
-        <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:TextBox ID="TextBox1" runat="server" Width="70px"></asp:TextBox>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:TextBox ID="TextBox2" runat="server" Width="82px"></asp:TextBox>
-        <br />
-        <br />
-        <asp:Label ID="Label3" runat="server" Text="Upload Results Image"></asp:Label>
-&nbsp;&nbsp;&nbsp;
-        <asp:FileUpload ID="FileUpload1" runat="server" />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
+    <div>
     
     </div>
-    &nbsp;&nbsp;&nbsp;
-    <div style="border-style: inset; border-width: thin; height: 183px">
-        <br />
-        <asp:Label ID="Label8" runat="server" Font-Size="Larger" 
-            Text="Confirm Member Requests"></asp:Label>
-        <br />
-        <br />
-        <div style="width: 363px; height: 87px">
-            <asp:Label ID="Label9" runat="server" Text="Name of Member "></asp:Label>
-            <br />
-            <asp:Label ID="Label10" runat="server" Text="Member Zone "></asp:Label>
-            <br />
-            <br />
-            <input id="Button1" type="button" value="Confirm" />&nbsp;&nbsp;&nbsp;&nbsp;
-            <input id="Button2" type="button" value="Reject" /></div>
+    <table align="center" class="style1">
+        <caption class="style3">
+            <h1>
+                <strong>Join League</strong></h1>
+        </caption>
+        <tr>
+            <td class="style2">
+                League
+            </td>
+            <td>
+                <asp:DropDownList ID="DropDownList1" runat="server" 
+                    DataSourceID="SqlDataSource1" DataTextField="LeagueName" 
+                    DataValueField="IDLeague" Height="21px" Width="126px">
+                </asp:DropDownList>
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
+                    ConnectionString="<%$ ConnectionStrings:EsportsConnectionString %>" 
+                    SelectCommand="SELECT * FROM [League]"></asp:SqlDataSource>
+            </td>
+        </tr>
+        <tr>
+            <td class="style2">
+                Team
+            </td>
+            <td>
+                <asp:DropDownList ID="DropDownList2" runat="server" 
+                    DataSourceID="SqlDataSource2" DataTextField="TeamName" DataValueField="TeamID" 
+                    Height="16px" Width="132px">
+                </asp:DropDownList>
+                <asp:SqlDataSource ID="SqlDataSource2" runat="server" 
+                    ConnectionString="<%$ ConnectionStrings:EsportsConnectionString %>" 
+                    SelectCommand="SELECT * FROM [SetupTeams]"></asp:SqlDataSource>
+            </td>
+        </tr>
+        <tr>
+            <td class="style2">
+                Score</td>
+            <td>
+                <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+            </td>
+        </tr>
+        <tr>
+            <td class="style2">
+                Game</td>
+            <td>
+                <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+            </td>
+        </tr>
+        <tr>
+            <td class="style2">
+                <asp:Label ID="Label1" runat="server"></asp:Label>
+            </td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td class="style2">
+                &nbsp;</td>
+            <td>
+                <asp:Button ID="Button1" runat="server" onclick="Button1_Click1" Text="Join" 
+                    Width="50px" />
+            </td>
+        </tr>
+    </table>
+    <div style="border-style: outset; border-width: thin; height: 219px">
+        <table class="style4">
+            <caption class="style6">
+                <strong>Upload Results</strong></caption>
+            <tr>
+                <td class="style7">
+                    Your Team</td>
+                <td class="style8">
+                    <asp:DropDownList ID="YourTeamDrop" runat="server" 
+                        DataSourceID="SqlDataSource2" DataTextField="TeamName" DataValueField="TeamID">
+                    </asp:DropDownList>
+                </td>
+            </tr>
+            <tr>
+                <td class="style5">
+                    Opponent</td>
+                <td>
+                    <asp:DropDownList ID="OpponentDrop" runat="server" 
+                        DataSourceID="SqlDataSource2" DataTextField="TeamName" DataValueField="TeamID">
+                    </asp:DropDownList>
+                </td>
+            </tr>
+            <tr>
+                <td class="style5">
+                    Your score</td>
+                <td>
+                    <asp:TextBox ID="YourText" runat="server"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td class="style5">
+                    Opponent Score</td>
+                <td>
+                    <asp:TextBox ID="OpponentText" runat="server"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td class="style5">
+                    Proof Image</td>
+                <td>
+                    <asp:FileUpload ID="FileUpload1" runat="server" />
+                </td>
+            </tr>
+            <tr>
+                <td class="style5">
+                    <asp:Label ID="UploadLabel" runat="server"></asp:Label>
+                </td>
+                <td>
+                    <asp:Button ID="Button2" runat="server" onclick="Button2_Click" 
+                        Text="Upload Result" />
+                </td>
+            </tr>
+        </table>
     </div>
-    <p>
-        &nbsp;</p>
-    <div style="border-style: inset; border-width: thin; height: 140px">
-        <asp:Label ID="Label11" runat="server" Font-Size="Larger" Text="Join A League"></asp:Label>
-        <br />
-        <br />
-        <asp:Label ID="Label12" runat="server" Text="Choose League"></asp:Label>
-&nbsp;&nbsp;&nbsp;
-        <asp:DropDownList ID="DropDownList4" runat="server" Height="16px" Width="169px">
-        </asp:DropDownList>
-        <br />
-        <br />
-&nbsp;<input id="Submit1" type="submit" value="Join" /></div>
     </form>
-    <p>
-        &nbsp;</p>
 </body>
 </html>
