@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "ASP", ".", "{55C14E01-B88E-47F7-8E66-B5B7EE83A522}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		ProjectReferences = "{80A87A20-CAB8-43CD-BBAD-20A1C9759D22}|Carab3TierSecurity.dll;{16B29EDD-5461-4F69-9DA6-206B6CEC52CA}|Carab3TierBase.dll;{BA098C6F-1617-47BE-9801-E98EDDBD9023}|Carab4m.dll;{81A8BBA7-DB2B-4AE4-A435-AC6028105EF1}|CarabControl.dll;{28777E7F-9C47-4174-90E9-AC1B06514A14}|CarabCore.dll;{F787F403-1B4C-494D-A86D-63A5C87064EF}|CarabDB.dll;{88B33B37-01B5-49EA-856C-5FF87099FE54}|CarabiX.dll;{FBA6FE31-E482-42FF-AD1C-90BCAD61533D}|CarabiXbase.dll;{2B603030-7CCE-4F8D-96AD-4C9F37C7E99A}|CarabiX_WinFormsControls.dll;{FF2ACBDA-5653-4C2B-881E-75C18CC63F2C}|CarabiX_WPFControls.dll;{3ECF21E6-080B-4EAA-8DE4-572C4B4AC952}|CarabiX_Biometrics.dll;{7DE8D7B8-2E63-4423-BA9A-4065BF6E3FE9}|GoldenKey.dll;"
+		Debug.AspNetCompiler.VirtualPath = "/ASP"
+		Debug.AspNetCompiler.PhysicalPath = "..\ASP\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\ASP\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/ASP"
+		Release.AspNetCompiler.PhysicalPath = "..\ASP\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\ASP\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "51916"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		All|Any CPU = All|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		Library|Any CPU = Library|Any CPU
+		R|Any CPU = R|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{55C14E01-B88E-47F7-8E66-B5B7EE83A522}.All|Any CPU.ActiveCfg = Debug|Any CPU
+		{55C14E01-B88E-47F7-8E66-B5B7EE83A522}.All|Any CPU.Build.0 = Debug|Any CPU
+		{55C14E01-B88E-47F7-8E66-B5B7EE83A522}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55C14E01-B88E-47F7-8E66-B5B7EE83A522}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55C14E01-B88E-47F7-8E66-B5B7EE83A522}.Library|Any CPU.ActiveCfg = Debug|Any CPU
+		{55C14E01-B88E-47F7-8E66-B5B7EE83A522}.Library|Any CPU.Build.0 = Debug|Any CPU
+		{55C14E01-B88E-47F7-8E66-B5B7EE83A522}.R|Any CPU.ActiveCfg = Debug|Any CPU
+		{55C14E01-B88E-47F7-8E66-B5B7EE83A522}.R|Any CPU.Build.0 = Debug|Any CPU
+		{55C14E01-B88E-47F7-8E66-B5B7EE83A522}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{55C14E01-B88E-47F7-8E66-B5B7EE83A522}.Release|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
