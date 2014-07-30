@@ -126,6 +126,27 @@
                 </td>
             </tr>
             <tr>
+                <td class="style7">
+                    League</td>
+                <td class="style8">
+                    <asp:DropDownList ID="LeagueDrop" runat="server" DataSourceID="SqlDataSource6" 
+                        DataTextField="LeagueName" DataValueField="LeagueName">
+                    </asp:DropDownList>
+                </td>
+            </tr>
+            <tr>
+                <td class="style7">
+                    Game</td>
+                <td class="style8">
+                    <asp:DropDownList ID="GameDrop" runat="server" DataSourceID="SqlDataSource6" 
+                        DataTextField="GameName" DataValueField="GameName">
+                    </asp:DropDownList>
+                    <asp:SqlDataSource ID="SqlDataSource6" runat="server" 
+                        ConnectionString="<%$ ConnectionStrings:EsportsConnectionString2 %>" 
+                        SelectCommand="SELECT * FROM [SetupGame]"></asp:SqlDataSource>
+                </td>
+            </tr>
+            <tr>
                 <td class="style5">
                     Opponent</td>
                 <td>

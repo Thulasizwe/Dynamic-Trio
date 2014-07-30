@@ -113,7 +113,7 @@ public partial class Captain : System.Web.UI.Page
                         Directory.CreateDirectory(Server.MapPath("Attachments") + "\\Games");
                     FileUpload1.PostedFile.SaveAs(SaveLocation);
 
-                    SqlCommand cmd = new SqlCommand("Insert into Results values('" + YourTeamDrop.SelectedValue + "','" + OpponentDrop.SelectedValue + "','" + "league " + "','" + YourText.Text + "','" + OpponentText.Text + "','" + "Game" + "','" + "false" + "','" + SaveLocation + "')", con);
+                    SqlCommand cmd = new SqlCommand("Insert into Results values('" + YourTeamDrop.SelectedValue + "','" + OpponentDrop.SelectedValue + "','" + LeagueDrop.SelectedItem + "','" + YourText.Text + "','" + OpponentText.Text + "','" + GameDrop.SelectedItem + "','" + "false" + "','" + SaveLocation + "')", con);
                     cmd.ExecuteNonQuery();
                     //
                     UploadLabel.Text = "Upload Successful";

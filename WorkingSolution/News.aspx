@@ -88,10 +88,7 @@
             </td>
         </tr>
     </table>
-    <br />
-      <a href="Default.aspx">
-            Go back to home page
-        </a>
+    
     </div>
     </form>
 </body>
