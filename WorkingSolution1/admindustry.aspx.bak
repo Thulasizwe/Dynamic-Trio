@@ -1,0 +1,421 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="admindustry.aspx.cs" Inherits="Default2" EnableEventValidation="false"  %><%@ Register assembly="DevExpress.Web.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxEditors" tagprefix="dx" %>
+<%@ Register TagPrefix="fc" TagName="menu" Src="~/WebUserControl.ascx" %>
+<%@ Register assembly="DevExpress.Web.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxDataView" tagprefix="dx" %>
+<%@ Register assembly="DevExpress.Web.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxGridView" tagprefix="dx" %>
+<%@ Register TagPrefix="dx" Namespace="DevExpress.Web.ASPxPopupControl" Assembly="DevExpress.Web.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" %>
+<%@ Register TagPrefix="dx" Namespace="DevExpress.Web.ASPxRoundPanel" Assembly="DevExpress.Web.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" %>
+<%@ Register TagPrefix="dx" Namespace="DevExpress.Web.ASPxPanel" Assembly="DevExpress.Web.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" %>
+<%@ Register TagPrefix="dx" Namespace="DevExpress.Web.ASPxRatingControl" Assembly="DevExpress.Web.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" %>
+<%@ Register TagPrefix="asp" Namespace="AjaxControlToolkit" Assembly="AjaxControlToolkit, Version=4.1.7.123, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e" %>
+<%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="asp" %>
+<%@ Register assembly="DevExpress.Web.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxEditors" tagprefix="dx" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <link rel="stylesheet" type="text/css" href="~/Content/NewStyles.css"/>
+    <title></title>
+   
+</head>
+<body>
+  
+     <form id="form1" runat="server">
+         <asp:ScriptManager ID="ScriptManager1" runat="server" >
+    </asp:ScriptManager>
+  
+     <div>
+         <fc:menu ID="menu" runat="server" />  
+    </div>
+   
+    
+     <div align="center"  style="height: 150px">
+         <br />
+         <br />
+         <br />
+    <dx:ASPxLabel ID="ASPxLabel1" runat="server" Text="Structure Administration" 
+         Theme="iOS"  
+         Font-Bold="True" Font-Size="XX-Large" align="center">
+    </dx:ASPxLabel>
+
+     </div>
+     
+     <div align="left" style="height: 150px"t>
+    
+          <dx:ASPxButton ID="AddIndustry" runat="server" Text="Add Industry" 
+              Theme="Glass" Width="130px" onclick="AddIndustry_Click" 
+              style="height: 25px" AutoPostBack="False"/> 
+     &nbsp;&nbsp;&nbsp; 
+     <dx:ASPxButton ID="AddCompany" runat="server" Text="Add Company" 
+              Theme="Glass" Width="130px" AutoPostBack="False" />
+     &nbsp;&nbsp;&nbsp;
+     <dx:ASPxButton ID="AddSite" runat="server" Text="Add Site" Theme="Glass" 
+               Width="130px" AutoPostBack="False"/>
+     &nbsp;&nbsp;&nbsp;
+     <dx:ASPxButton ID="AddDepartment" runat="server" Text="Add Department" 
+              Theme="Glass" AutoPostBack="False" Width="130px"/>
+         <br/><br/>
+          <dx:ASPxButton ID="DeleteIndustry" runat="server" Text="Delete Industry" 
+              Theme="Glass" Width="130px" onclick="DeleteIndustry_Click"/> 
+     &nbsp;&nbsp;&nbsp; 
+     <dx:ASPxButton ID="DeleteCompany" runat="server" Text="Delete Company" 
+              Theme="Glass"  Width="130px" onclick="DeleteCompany_Click" />
+     &nbsp;&nbsp;&nbsp;
+     <dx:ASPxButton ID="DeleteSite" runat="server" Text="Delete Site" Theme="Glass" 
+               Width="130px" onclick="DeleteSite_Click"/>
+     &nbsp;&nbsp;&nbsp;
+     <dx:ASPxButton ID="DeleteDepartment" runat="server" Text="Delete Department" 
+              Theme="Glass"  Width="130px" onclick="DeleteDepartment_Click"/>
+              
+              <br/><br/>
+          <dx:ASPxButton ID="EditIndustry" runat="server" Text="Edit Industry" 
+              Theme="Glass" Width="130px" onclick="EditIndustry_Click"/> 
+     &nbsp;&nbsp;&nbsp; 
+     <dx:ASPxButton ID="EditCompany" runat="server" Text="Edit Company" 
+              Theme="Glass" Width="130px" onclick="EditCompany_Click" />
+     &nbsp;&nbsp;&nbsp;
+     <dx:ASPxButton ID="EditSite" runat="server" Text="Edit Site" Theme="Glass" 
+             Width="130px" onclick="EditSite_Click"/>
+     &nbsp;&nbsp;&nbsp;
+     <dx:ASPxButton ID="EditDepartment" runat="server" Text="Edit Department" 
+              Theme="Glass" Width="130px" onclick="EditDepartment_Click" 
+              style="height: 25px"/>
+     </Div>
+     <div align="center">
+     <dx:ASPxGridView ID="ASPxGridView1" runat="server" Theme="Office2010Black" 
+             KeyFieldName="ID" 
+             AutoGenerateColumns="True">
+         <SettingsBehavior AllowFocusedRow="True" AllowSelectByRowClick="True"/>
+         <Settings ShowGroupPanel="True" ShowFilterBar="Visible" ShowFooter="True" 
+             ShowHeaderFilterButton="True" 
+             UseFixedTableLayout="True" />
+     </dx:ASPxGridView>
+     </div>
+     <p>
+     </p>
+     
+
+     <dx:ASPxPopupControl ID="popup" PopupHorizontalAlign="WindowCenter" 
+         PopupVerticalAlign="WindowCenter" HeaderText="Add a New Industy" AllowDragging="false"
+                       PopupElementID="AddIndustry" PopupAction="LeftMouseClick" 
+         Modal="True" CloseAction="OuterMouseClick" ShowCloseButton="True" 
+         runat="server" Width="276px">
+      <ContentCollection>    
+        <dx:PopupControlContentControl runat="server" >
+            <asp:panel ID="popupPanel" runat="server">
+                <br/>
+                       Add new Industy: <asp:TextBox ID="txtIndustry" runat="server"></asp:TextBox>
+                    <br/><br/>
+                <dx:ASPxButton runat="server" Text="Save" ID="SaveInd" OnClick="SaveIndusrty"></dx:ASPxButton>
+            </asp:panel>
+        </dx:PopupControlContentControl>
+      </ContentCollection>  
+    </dx:ASPxPopupControl>
+    
+    <dx:ASPxPopupControl ID="popcomp" PopupHorizontalAlign="WindowCenter" 
+         PopupVerticalAlign="WindowCenter" HeaderText="Add a New Company" AllowDragging="true"
+                       PopupElementID="AddCompany" PopupAction="LeftMouseClick" 
+         Modal="True" CloseAction="OuterMouseClick" ShowCloseButton="True" 
+         runat="server" Width="252px">
+      <ContentCollection>    
+        <dx:PopupControlContentControl ID="ppcomp" runat="server" >
+            <asp:panel ID="pnlp" runat="server">
+                
+                        Select an industy to add a company to: <br/>
+                        <asp:DropDownList ID="ddlIndustry" runat="server"></asp:DropDownList>
+                         <asp:CascadingDropDown ID="ddlIndustrypop" runat="server" Category="Industy" 
+            TargetControlID="ddlIndustry" LoadingText="Loading Industries..." PromptText="Select an Industry" 
+            ServiceMethod="BindIndustry" ServicePath="~/Ajaxdropdowns.asmx">
+       </asp:CascadingDropDown>
+                <br/><br/>
+                       Add new Company: <asp:TextBox ID="txtCompany" runat="server"></asp:TextBox>    
+                    <br/><br/>
+                <dx:ASPxButton runat="server" Text="Save" ID="savecomp" OnClick="SaveCompany"></dx:ASPxButton>
+            </asp:panel>
+        </dx:PopupControlContentControl>
+      </ContentCollection>  
+    </dx:ASPxPopupControl>
+    
+      <dx:ASPxPopupControl ID="popsite" PopupHorizontalAlign="WindowCenter" 
+         PopupVerticalAlign="WindowCenter" HeaderText="Add a New Site" AllowDragging="false"
+                       PopupElementID="AddSite" PopupAction="LeftMouseClick" 
+         Modal="True" CloseAction="OuterMouseClick" ShowCloseButton="True" 
+         runat="server" Width="252px">
+      <ContentCollection>    
+        <dx:PopupControlContentControl ID="ppsite" runat="server" >
+            <asp:panel ID="pnlsite" runat="server">
+                
+                        Select a Company to add a Site to: <br/>
+                        <asp:DropDownList ID="ddlComany" runat="server"></asp:DropDownList>
+                        <asp:CascadingDropDown ID="cdsite" runat="server" Category="Company" 
+            TargetControlID="ddlComany" LoadingText="Loading Companies..." PromptText="Select a Company" 
+            ServiceMethod="BindCompany" ServicePath="~/Ajaxdropdowns.asmx">
+       </asp:CascadingDropDown>
+                <br/><br/>
+                     
+                       Add new Site: <asp:TextBox ID="txtSite" runat="server"></asp:TextBox>    
+                    <br/><br/>
+                <dx:ASPxButton runat="server" Text="Save" ID="siteSAve" OnClick="AddNewSite"></dx:ASPxButton>
+            </asp:panel>
+        </dx:PopupControlContentControl>
+      </ContentCollection>  
+    </dx:ASPxPopupControl>
+
+    <dx:ASPxPopupControl ID="popdepa" PopupHorizontalAlign="WindowCenter" 
+         PopupVerticalAlign="WindowCenter" HeaderText="Add a New Department" AllowDragging="false"
+                       PopupElementID="AddDepartment" PopupAction="LeftMouseClick" 
+         Modal="True" CloseAction="OuterMouseClick" ShowCloseButton="True" 
+         runat="server" Width="264px">
+      <ContentCollection>    
+        <dx:PopupControlContentControl ID="popdepat" runat="server" >
+            <asp:panel ID="pnldep" runat="server">
+                
+                        Select a Company to add a Department to: <br/>
+                        <asp:DropDownList ID="ddldepcomp" runat="server" AutoPostBack ="False"></asp:DropDownList>
+                            <asp:CascadingDropDown ID="cddepcom" runat="server"  Category="Company" 
+            TargetControlID="ddldepcomp" LoadingText="Loading Companies..." PromptText="Select a Company" 
+            ServiceMethod="BindCompany" ServicePath="~/Ajaxdropdowns.asmx">
+       </asp:CascadingDropDown>
+                <br/><br/>
+                      Select a Site to add a Department to: <br/>
+                        <asp:DropDownList ID="ddldepsite" runat="server" 
+                            ></asp:DropDownList>
+                            <asp:CascadingDropDown ID="cddepsite" runat="server" Category="Sites" 
+            TargetControlID="ddldepsite"  ParentControlID="ddldepcomp" LoadingText="Loading Sites..." PromptText="Select a Site" 
+            ServiceMethod="BindSite" ServicePath="~/Ajaxdropdowns.asmx">
+       </asp:CascadingDropDown>
+                <br/><br/>
+                       Add new Department: <asp:TextBox ID="txtDepartment" runat="server"></asp:TextBox>    
+                    <br/><br/>
+                <dx:ASPxButton runat="server" Text="Save" ID="SaveDep" OnClick="AddNewDep"></dx:ASPxButton>
+            </asp:panel>
+        </dx:PopupControlContentControl>
+      </ContentCollection>  
+    </dx:ASPxPopupControl>
+
+    <dx:ASPxPopupControl ID="popeditin" PopupHorizontalAlign="WindowCenter" 
+         PopupVerticalAlign="WindowCenter" HeaderText="Edit Industry" AllowDragging="false"
+                       PopupElementID="EditIndustry" PopupAction="LeftMouseClick" 
+         Modal="True" CloseAction="OuterMouseClick" ShowCloseButton="True" 
+         runat="server" Width="276px">
+      <ContentCollection>    
+        <dx:PopupControlContentControl ID="ppeditin" runat="server" >
+            <asp:panel ID="Panel1" runat="server">
+                <br/>
+                     Select Industy to Edit: <br/>
+                        <asp:DropDownList ID="ddlEditind" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlEditind_SelectedIndexChanged"
+                            ></asp:DropDownList>
+                <br/><br/>
+                Rename to:<br/> <asp:TextBox ID="txteditind" runat="server"></asp:TextBox>
+                    <br/><br/>
+                <dx:ASPxButton runat="server" Text="Save" ID="edtindssave" 
+                    OnClick="edtindssave_Click"></dx:ASPxButton>
+            </asp:panel>
+        </dx:PopupControlContentControl>
+      </ContentCollection>  
+    </dx:ASPxPopupControl>
+    
+    <dx:ASPxPopupControl ID="popeditCom" PopupHorizontalAlign="WindowCenter" 
+         PopupVerticalAlign="WindowCenter" HeaderText="Edit Company" AllowDragging="false"
+                       PopupElementID="EditCompany" PopupAction="LeftMouseClick" 
+         Modal="True" CloseAction="OuterMouseClick" ShowCloseButton="True" 
+         runat="server" Width="276px">
+      <ContentCollection>    
+        <dx:PopupControlContentControl ID="ppedtcomp" runat="server" >
+            <asp:panel ID="pnledcom" runat="server">
+                <br/>
+                     Select a Company to Edit: <br/>
+                        <asp:DropDownList ID="ddledtCom" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddledtCom_SelectedIndexChanged"
+                            ></asp:DropDownList>
+                <br/><br/>
+                Rename to:<br/> <asp:TextBox ID="txtedtCom" runat="server"></asp:TextBox>
+                 
+                    <br/><br/>
+                       <dx:ASPxCheckBox ID="cIndus" runat="server" CheckState="Unchecked" Text="Change Industry">
+                       </dx:ASPxCheckBox> <br/>
+                    Change Industry to: <br/>
+                        <asp:DropDownList ID="ddlcind" runat="server"
+                            ></asp:DropDownList>
+                <br/><br/>
+                <dx:ASPxButton runat="server" Text="Save" ID="svedtcom" OnClick="svedtcom_Click" 
+                   ></dx:ASPxButton>
+            </asp:panel>
+        </dx:PopupControlContentControl>
+      </ContentCollection>  
+    </dx:ASPxPopupControl>
+    
+        <dx:ASPxPopupControl ID="popedSie" PopupHorizontalAlign="WindowCenter" 
+         PopupVerticalAlign="WindowCenter" HeaderText="Edit Site" AllowDragging="false"
+                       PopupElementID="EditSite" PopupAction="LeftMouseClick" 
+         Modal="True" CloseAction="OuterMouseClick" ShowCloseButton="True" 
+         runat="server" Width="276px">
+      <ContentCollection>    
+        <dx:PopupControlContentControl ID="PopupControlContentControl1" runat="server" >
+            <asp:panel ID="Panel2" runat="server">
+                <br/>
+                   Select a Company to edit site: <br/>
+                        <asp:DropDownList ID="ddleditcomp" runat="server" AutoPostBack="True" 
+                    OnSelectedIndexChanged="ddleditcomp_SelectedIndexChanged" ></asp:DropDownList>
+                <br/><br/>
+                     Select a Site to Edit: <br/>
+                        <asp:DropDownList ID="ddleditSite" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddleditSite_SelectedIndexChanged" 
+                            ></asp:DropDownList>
+                <br/><br/>
+                Rename to:<br/> <asp:TextBox ID="txtedSite" runat="server"></asp:TextBox>
+                 
+                    <br/><br/>
+                       <dx:ASPxCheckBox ID="cbSite" runat="server" CheckState="Unchecked" Text="Change Company">
+                       </dx:ASPxCheckBox> <br/>
+                    Change Company to: <br/>
+                        <asp:DropDownList ID="ddlCComp" runat="server"
+                            ></asp:DropDownList>
+                <br/><br/>
+                <dx:ASPxButton runat="server" Text="Save" ID="btnsaveSite" OnClick="btnsaveSite_Click" 
+                   ></dx:ASPxButton>
+            </asp:panel>
+        </dx:PopupControlContentControl>
+      </ContentCollection>  
+    </dx:ASPxPopupControl>
+    
+    
+    <dx:ASPxPopupControl ID="ppeditdep" PopupHorizontalAlign="WindowCenter" 
+         PopupVerticalAlign="WindowCenter" HeaderText="Edit Department" AllowDragging="false"
+                       PopupElementID="EditDepartment" PopupAction="LeftMouseClick" 
+         Modal="True" CloseAction="OuterMouseClick" ShowCloseButton="True" 
+         runat="server" Width="276px">
+      <ContentCollection>    
+        <dx:PopupControlContentControl ID="PopupControlContentControl2" runat="server" >
+            <asp:panel ID="Panel3" runat="server">
+                <br/>
+                   Selected Company: <br/>
+                        <asp:DropDownList ID="ddldepcompedit" runat="server" 
+                    AutoPostBack="True"  
+                   ></asp:DropDownList>
+                <br/><br/>
+                     Selected Site: <br/>
+                        <asp:DropDownList ID="ddlsiteEdit" runat="server" AutoPostBack="True" 
+                            ></asp:DropDownList>
+                            
+                            <br/><br/>
+                     Selected Department: <br/>
+                        <asp:DropDownList ID="ddlEditDep" runat="server" AutoPostBack="True"
+                            ></asp:DropDownList>
+                <br/><br/>
+                
+
+                Rename to:<br/> <asp:TextBox ID="txtDep" runat="server"></asp:TextBox>
+                 
+                    <br/><br/>
+                       <dx:ASPxCheckBox ID="cbDep" runat="server" CheckState="Unchecked" Text="Change Site">
+                       </dx:ASPxCheckBox> <br/>
+                    Change Site to: <br/>
+                        <asp:DropDownList ID="ddlCsite" runat="server" style="margin-top: 0px"
+                            ></asp:DropDownList>
+                <br/><br/>
+                <dx:ASPxButton runat="server" Text="Save" ID="depSAve" OnClick="depSAve_Click" 
+                   ></dx:ASPxButton>
+            </asp:panel>
+        </dx:PopupControlContentControl>
+      </ContentCollection>  
+    </dx:ASPxPopupControl>
+    
+    <dx:ASPxPopupControl ID="popdeleteind" PopupHorizontalAlign="WindowCenter" 
+         PopupVerticalAlign="WindowCenter" HeaderText="Delete Industry" AllowDragging="false"
+                       PopupElementID="DeleteIndustry" PopupAction="LeftMouseClick" 
+         Modal="True" CloseAction="OuterMouseClick" ShowCloseButton="True" 
+         runat="server" Width="276px">
+      <ContentCollection>    
+        <dx:PopupControlContentControl ID="PopupControlContentControl3" runat="server" >
+            <asp:panel ID="Panel4" runat="server">
+                <br/>
+                     Select Industy to Delete: <br/>
+                        <asp:DropDownList ID="ddldeleteind" runat="server"
+                            ></asp:DropDownList>
+                
+                    <br/><br/>
+                <dx:ASPxButton runat="server" Text="Delete" ID="btndelteind" OnClick="btndelteind_Click" 
+                    ></dx:ASPxButton>
+            </asp:panel>
+        </dx:PopupControlContentControl>
+      </ContentCollection>  
+    </dx:ASPxPopupControl>
+    <dx:ASPxPopupControl ID="popdelcomp" PopupHorizontalAlign="WindowCenter" 
+         PopupVerticalAlign="WindowCenter" HeaderText="Delete Company" AllowDragging="false"
+                       PopupElementID="DeleteCompany" PopupAction="LeftMouseClick" 
+         Modal="True" CloseAction="OuterMouseClick" ShowCloseButton="True" 
+         runat="server" Width="276px">
+      <ContentCollection>    
+        <dx:PopupControlContentControl ID="PopupControlContentControl4" runat="server" >
+            <asp:panel ID="Panel5" runat="server">
+                 <br/>
+                     Select a Company to Delete: <br/>
+                        <asp:DropDownList ID="ddldelcomp" runat="server" 
+                            ></asp:DropDownList>
+                
+                <br/><br/>
+                <dx:ASPxButton runat="server" Text="Delete" ID="deletecomp" OnClick="deletecomp_Click"  
+                   ></dx:ASPxButton>
+            </asp:panel>
+        </dx:PopupControlContentControl>
+      </ContentCollection>  
+    </dx:ASPxPopupControl>
+    <dx:ASPxPopupControl ID="popdelsite" PopupHorizontalAlign="WindowCenter" 
+         PopupVerticalAlign="WindowCenter" HeaderText="Delte Site" AllowDragging="false"
+                       PopupElementID="DeleteSite" PopupAction="LeftMouseClick" 
+         Modal="True" CloseAction="OuterMouseClick" ShowCloseButton="True" 
+         runat="server" Width="276px">
+      <ContentCollection>    
+        <dx:PopupControlContentControl ID="PopupControlContentControl5" runat="server" >
+            <asp:panel ID="Panel6" runat="server">
+                <br/>
+                   Select a Company to Delete site: <br/>
+                        <asp:DropDownList ID="ddldelcoms" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddldelcoms_SelectedIndexChanged"
+                    ></asp:DropDownList>
+                <br/><br/>
+                     Select a Site to Delete: <br/>
+                        <asp:DropDownList ID="ddldelsite" runat="server" AutoPostBack="True"  
+                            ></asp:DropDownList>
+                
+                <br/><br/>
+                <dx:ASPxButton runat="server" Text="Delete" ID="DeleteSitesse" OnClick="DeleteSitesse_Click"  
+                   ></dx:ASPxButton>
+            </asp:panel>
+        </dx:PopupControlContentControl>
+      </ContentCollection>  
+    </dx:ASPxPopupControl>
+    
+    
+    <dx:ASPxPopupControl ID="popdeldepart" PopupHorizontalAlign="WindowCenter" 
+         PopupVerticalAlign="WindowCenter" HeaderText="Delete Department" AllowDragging="false"
+                       PopupElementID="DeleteDepartment" PopupAction="LeftMouseClick" 
+         Modal="True" CloseAction="OuterMouseClick" ShowCloseButton="True" 
+         runat="server" Width="276px">
+      <ContentCollection>    
+        <dx:PopupControlContentControl ID="PopupControlContentControl6" runat="server" >
+            <asp:panel ID="Panel7" runat="server">
+                <br/>
+                   Selected Company: <br/>
+                        <asp:DropDownList ID="ddlselcomp" runat="server" 
+                    AutoPostBack="True" 
+                   ></asp:DropDownList>
+                <br/><br/>
+                     Selected Site: <br/>
+                        <asp:DropDownList ID="ddlselsite" runat="server" AutoPostBack="True" 
+                            ></asp:DropDownList>
+                            
+                            <br/><br/>
+                     Selected Department: <br/>
+                        <asp:DropDownList ID="ddlseldep" runat="server" AutoPostBack="True" 
+                            ></asp:DropDownList>
+                <br/><br/>
+                
+                <dx:ASPxButton runat="server" Text="Delete" ID="btndeldep" OnClick="btndeldep_Click" 
+                   ></dx:ASPxButton>
+            </asp:panel>
+        </dx:PopupControlContentControl>
+      </ContentCollection>  
+    </dx:ASPxPopupControl>
+     </form>
+    
+</body>
+</html>

@@ -1,0 +1,1971 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CarabiX_WinFormsControls</name>
+    </assembly>
+    <members>
+        <member name="T:CarabiX_WinFormsControls.winScrollPage">
+            <summary>
+            Scroll Page Control
+            </summary>
+        </member>
+        <member name="T:CarabiX_WinFormsControls.winUserControl">
+            <summary>
+            Base Class for user controls
+            </summary>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winUserControl.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:CarabiX_WinFormsControls.winUserControl"/> class.
+            </summary>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winUserControl.cxxParent_IsLoaded">
+            <summary>
+            Fire event after parent is docked. 
+            </summary>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winUserControl.cxxDock(System.Windows.Forms.DockStyle,System.Type[])">
+            <summary>
+            Ensures that the parent is loaded before control is docked
+            </summary>
+            <param name="dockStyle">The dock.</param>
+            <param name="parentType">Type of the parent.</param>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winUserControl.cxxDockInPanel(System.Windows.Forms.DockStyle)">
+            <summary>
+            Only dock control if dropped on panel 
+            </summary>
+            <param name="dock">The dock.</param>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winUserControl.cxxControls_GetAll(System.Collections.IList)">
+            <summary>
+            Get all controls.
+            </summary>
+            <param name="ctrls">The CTRLS.</param>
+            <returns></returns>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winUserControl.cxxControls_Parent(System.Boolean)">
+            <summary>
+            Return all controls from the parent.
+            </summary>
+            <param name="reset">if set to <c>true</c> [reset].</param>
+            <returns></returns>
+        </member>
+        <member name="F:CarabiX_WinFormsControls.winUserControl.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winUserControl.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winUserControl.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:CarabiX_WinFormsControls.winUserControl.cxxIsDesignerHosted">
+            <summary>
+            Gets a value indicating whether this instance is designer hosted.
+            </summary>
+            <value>
+            	<c>true</c> if this instance is designer hosted; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="E:CarabiX_WinFormsControls.winUserControl.cxEvent_ParentForm_IsLoaded">
+            <summary>
+            Occurs when [cx event_ parent form_ is loaded].
+            </summary>
+        </member>
+        <member name="P:CarabiX_WinFormsControls.winUserControl.AutoScroll">
+            <summary>
+            Gets or sets a value indicating whether the container enables the user to scroll to any controls placed outside of its visible boundaries.
+            </summary>
+            <returns>true if the container enables auto-scrolling; otherwise, false. The default value is false. </returns>
+        </member>
+        <member name="P:CarabiX_WinFormsControls.winUserControl.AutoSize">
+            <summary>
+            Gets or sets a value indicating whether [auto size].
+            </summary>
+            <value>
+              <c>true</c> if [auto size]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:CarabiX_WinFormsControls.winUserControl.AutoSizeMode">
+            <summary>
+            Gets or sets how the control will resize itself.
+            </summary>
+            <returns>A value from the <see cref="T:System.Windows.Forms.AutoSizeMode" /> enumeration. The default is <see cref="F:System.Windows.Forms.AutoSizeMode.GrowOnly" />.</returns>
+        </member>
+        <member name="P:CarabiX_WinFormsControls.winUserControl.BorderStyle">
+            <summary>
+            Gets or sets the border style of the user control.
+            </summary>
+            <returns>One of the <see cref="T:System.Windows.Forms.BorderStyle" /> values. The default is <see cref="F:System.Windows.Forms.BorderStyle.Fixed3D" />.</returns>
+              <PermissionSet>
+              <IPermission class="System.Security.Permissions.FileIOPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Unrestricted="true" />
+              </PermissionSet>
+        </member>
+        <member name="P:CarabiX_WinFormsControls.winUserControl.AccessibleDescription">
+            <summary>
+            Gets or sets the description of the control used by accessibility client applications.
+            </summary>
+            <returns>The description of the control used by accessibility client applications. The default is null.</returns>
+        </member>
+        <member name="P:CarabiX_WinFormsControls.winUserControl.AccessibleName">
+            <summary>
+            Gets or sets the name of the control used by accessibility client applications.
+            </summary>
+            <returns>The name of the control used by accessibility client applications. The default is null.</returns>
+        </member>
+        <member name="P:CarabiX_WinFormsControls.winUserControl.AccessibleRole">
+            <summary>
+            Gets or sets the accessible role of the control
+            </summary>
+            <returns>One of the values of <see cref="T:System.Windows.Forms.AccessibleRole" />. The default is Default.</returns>
+        </member>
+        <member name="P:CarabiX_WinFormsControls.winUserControl.AllowDrop">
+            <summary>
+            Gets or sets a value indicating whether the control can accept data that the user drags onto it.
+            </summary>
+            <returns>true if drag-and-drop operations are allowed in the control; otherwise, false. The default is false.</returns>
+              <PermissionSet>
+              <IPermission class="System.Security.Permissions.EnvironmentPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Unrestricted="true" />
+              <IPermission class="System.Security.Permissions.FileIOPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Unrestricted="true" />
+              <IPermission class="System.Security.Permissions.SecurityPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Flags="UnmanagedCode, ControlEvidence" />
+              <IPermission class="System.Diagnostics.PerformanceCounterPermission, System, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Unrestricted="true" />
+              </PermissionSet>
+        </member>
+        <member name="P:CarabiX_WinFormsControls.winUserControl.AutoScrollMargin">
+            <summary>
+            Gets or sets the size of the auto-scroll margin.
+            </summary>
+            <returns>A <see cref="T:System.Drawing.Size" /> that represents the height and width of the auto-scroll margin in pixels.</returns>
+        </member>
+        <member name="P:CarabiX_WinFormsControls.winUserControl.AutoScrollMinSize">
+            <summary>
+            Gets or sets the minimum size of the auto-scroll.
+            </summary>
+            <returns>A <see cref="T:System.Drawing.Size" /> that determines the minimum size of the virtual area through which the user can scroll.</returns>
+        </member>
+        <member name="P:CarabiX_WinFormsControls.winUserControl.AutoValidate">
+            <summary>
+            Gets or sets how the control performs validation when the user changes focus to another control.
+            </summary>
+            <returns>A member of the <see cref="T:System.Windows.Forms.AutoValidate" /> enumeration. The default value for <see cref="T:System.Windows.Forms.UserControl" /> is <see cref="F:System.Windows.Forms.AutoValidate.EnablePreventFocusChange" />.</returns>
+        </member>
+        <member name="P:CarabiX_WinFormsControls.winUserControl.ImeMode">
+            <summary>
+            Gets or sets the Input Method Editor (IME) mode of the control.
+            </summary>
+            <returns>One of the <see cref="T:System.Windows.Forms.ImeMode" /> values. The default is <see cref="F:System.Windows.Forms.ImeMode.Inherit" />.</returns>
+              <PermissionSet>
+              <IPermission class="System.Security.Permissions.EnvironmentPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Unrestricted="true" />
+              <IPermission class="System.Security.Permissions.FileIOPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Unrestricted="true" />
+              <IPermission class="System.Security.Permissions.SecurityPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Flags="UnmanagedCode, ControlEvidence" />
+              <IPermission class="System.Diagnostics.PerformanceCounterPermission, System, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Unrestricted="true" />
+              </PermissionSet>
+        </member>
+        <member name="P:CarabiX_WinFormsControls.winUserControl.Margin">
+            <summary>
+            Gets or sets the space between controls.
+            </summary>
+            <returns>A <see cref="T:System.Windows.Forms.Padding" /> representing the space between controls.</returns>
+        </member>
+        <member name="P:CarabiX_WinFormsControls.winUserControl.MaximumSize">
+            <summary>
+            Gets or sets the size that is the upper limit that <see cref="M:System.Windows.Forms.Control.GetPreferredSize(System.Drawing.Size)" /> can specify.
+            </summary>
+            <returns>An ordered pair of type <see cref="T:System.Drawing.Size" /> representing the width and height of a rectangle.</returns>
+        </member>
+        <member name="P:CarabiX_WinFormsControls.winUserControl.MinimumSize">
+            <summary>
+            Gets or sets the size that is the lower limit that <see cref="M:System.Windows.Forms.Control.GetPreferredSize(System.Drawing.Size)" /> can specify.
+            </summary>
+            <returns>An ordered pair of type <see cref="T:System.Drawing.Size" /> representing the width and height of a rectangle.</returns>
+        </member>
+        <member name="P:CarabiX_WinFormsControls.winUserControl.Padding">
+            <summary>
+            Gets or sets padding within the control.
+            </summary>
+            <returns>A <see cref="T:System.Windows.Forms.Padding" /> representing the control's internal spacing characteristics.</returns>
+              <PermissionSet>
+              <IPermission class="System.Security.Permissions.FileIOPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Unrestricted="true" />
+              </PermissionSet>
+        </member>
+        <member name="P:CarabiX_WinFormsControls.winUserControl.RightToLeft">
+            <summary>
+            Gets or sets a value indicating whether control's elements are aligned to support locales using right-to-left fonts.
+            </summary>
+            <returns>One of the <see cref="T:System.Windows.Forms.RightToLeft" /> values. The default is <see cref="F:System.Windows.Forms.RightToLeft.Inherit" />.</returns>
+              <PermissionSet>
+              <IPermission class="System.Security.Permissions.EnvironmentPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Unrestricted="true" />
+              <IPermission class="System.Security.Permissions.FileIOPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Unrestricted="true" />
+              <IPermission class="System.Security.Permissions.SecurityPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Flags="UnmanagedCode, ControlEvidence" />
+              <IPermission class="System.Diagnostics.PerformanceCounterPermission, System, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Unrestricted="true" />
+              </PermissionSet>
+        </member>
+        <member name="P:CarabiX_WinFormsControls.winUserControl.UseWaitCursor">
+            <summary>
+            Gets or sets a value indicating whether to use the wait cursor for the current control and all child controls.
+            </summary>
+            <returns>true to use the wait cursor for the current control and all child controls; otherwise, false. The default is false.</returns>
+        </member>
+        <member name="P:CarabiX_WinFormsControls.winUserControl.BackgroundImage">
+            <summary>
+            Gets or sets the background image displayed in the control.
+            </summary>
+            <returns>An <see cref="T:System.Drawing.Image" /> that represents the image to display in the background of the control.</returns>
+              <PermissionSet>
+              <IPermission class="System.Security.Permissions.FileIOPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Unrestricted="true" />
+              </PermissionSet>
+        </member>
+        <member name="P:CarabiX_WinFormsControls.winUserControl.BackgroundImageLayout">
+            <summary>
+            Gets or sets the background image layout as defined in the <see cref="T:System.Windows.Forms.ImageLayout" /> enumeration.
+            </summary>
+            <returns>One of the values of <see cref="T:System.Windows.Forms.ImageLayout" /> (<see cref="F:System.Windows.Forms.ImageLayout.Center" /> , <see cref="F:System.Windows.Forms.ImageLayout.None" />, <see cref="F:System.Windows.Forms.ImageLayout.Stretch" />, <see cref="F:System.Windows.Forms.ImageLayout.Tile" />, or <see cref="F:System.Windows.Forms.ImageLayout.Zoom" />). <see cref="F:System.Windows.Forms.ImageLayout.Tile" /> is the default value.</returns>
+              <PermissionSet>
+              <IPermission class="System.Security.Permissions.FileIOPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Unrestricted="true" />
+              </PermissionSet>
+        </member>
+        <member name="P:CarabiX_WinFormsControls.winUserControl.CausesValidation">
+            <summary>
+            Gets or sets a value indicating whether the control causes validation to be performed on any controls that require validation when it receives focus.
+            </summary>
+            <returns>true if the control causes validation to be performed on any controls requiring validation when it receives focus; otherwise, false. The default is true.</returns>
+        </member>
+        <member name="P:CarabiX_WinFormsControls.winUserControl.ContextMenu">
+            <summary>
+            Gets or sets the shortcut menu associated with the control.
+            </summary>
+            <returns>A <see cref="T:System.Windows.Forms.ContextMenu" /> that represents the shortcut menu associated with the control.</returns>
+        </member>
+        <member name="P:CarabiX_WinFormsControls.winUserControl.Cursor">
+            <summary>
+            Gets or sets the cursor that is displayed when the mouse pointer is over the control.
+            </summary>
+            <returns>A <see cref="T:System.Windows.Forms.Cursor" /> that represents the cursor to display when the mouse pointer is over the control.</returns>
+              <PermissionSet>
+              <IPermission class="System.Security.Permissions.EnvironmentPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Unrestricted="true" />
+              <IPermission class="System.Security.Permissions.FileIOPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Unrestricted="true" />
+              <IPermission class="System.Security.Permissions.SecurityPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Flags="UnmanagedCode, ControlEvidence" />
+              <IPermission class="System.Diagnostics.PerformanceCounterPermission, System, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Unrestricted="true" />
+              </PermissionSet>
+        </member>
+        <member name="P:CarabiX_WinFormsControls.winUserControl.ForeColor">
+            <summary>
+            Gets or sets the foreground color of the control.
+            </summary>
+            <returns>The foreground <see cref="T:System.Drawing.Color" /> of the control. The default is the value of the <see cref="P:System.Windows.Forms.Control.DefaultForeColor" /> property.</returns>
+              <PermissionSet>
+              <IPermission class="System.Security.Permissions.FileIOPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Unrestricted="true" />
+              </PermissionSet>
+        </member>
+        <member name="P:CarabiX_WinFormsControls.winUserControl.ContextMenuStrip">
+            <summary>
+            Gets or sets the <see cref="T:System.Windows.Forms.ContextMenuStrip" /> associated with this control.
+            </summary>
+            <returns>The <see cref="T:System.Windows.Forms.ContextMenuStrip" /> for this control, or null if there is no <see cref="T:System.Windows.Forms.ContextMenuStrip" />. The default is null.</returns>
+        </member>
+        <member name="P:CarabiX_WinFormsControls.winUserControl.Font">
+            <summary>
+            Gets or sets the font of the text displayed by the control.
+            </summary>
+            <returns>The <see cref="T:System.Drawing.Font" /> to apply to the text displayed by the control. The default is the value of the <see cref="P:System.Windows.Forms.Control.DefaultFont" /> property.</returns>
+              <PermissionSet>
+              <IPermission class="System.Security.Permissions.EnvironmentPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Unrestricted="true" />
+              <IPermission class="System.Security.Permissions.FileIOPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Unrestricted="true" />
+              <IPermission class="System.Security.Permissions.SecurityPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Flags="UnmanagedCode, ControlEvidence" />
+              <IPermission class="System.Diagnostics.PerformanceCounterPermission, System, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Unrestricted="true" />
+              </PermissionSet>
+        </member>
+        <member name="E:CarabiX_WinFormsControls.winUserControl.ChangeUICues">
+            <summary>
+            Occurs when [change UI cues].
+            </summary>
+        </member>
+        <member name="E:CarabiX_WinFormsControls.winUserControl.ControlAdded">
+            <summary>
+            Occurs when [control added].
+            </summary>
+        </member>
+        <member name="E:CarabiX_WinFormsControls.winUserControl.ControlRemoved">
+            <summary>
+            Occurs when [control removed].
+            </summary>
+        </member>
+        <member name="E:CarabiX_WinFormsControls.winUserControl.HelpRequested">
+            <summary>
+            Occurs when [help requested].
+            </summary>
+        </member>
+        <member name="E:CarabiX_WinFormsControls.winUserControl.QueryAccessibilityHelp">
+            <summary>
+            Occurs when [query accessibility help].
+            </summary>
+        </member>
+        <member name="E:CarabiX_WinFormsControls.winUserControl.StyleChanged">
+            <summary>
+            Occurs when [style changed].
+            </summary>
+        </member>
+        <member name="E:CarabiX_WinFormsControls.winUserControl.SystemColorsChanged">
+            <summary>
+            Occurs when [system colors changed].
+            </summary>
+        </member>
+        <member name="E:CarabiX_WinFormsControls.winUserControl.DragDrop">
+            <summary>
+            Occurs when [drag drop].
+            </summary>
+        </member>
+        <member name="E:CarabiX_WinFormsControls.winUserControl.DragEnter">
+            <summary>
+            Occurs when [drag enter].
+            </summary>
+        </member>
+        <member name="E:CarabiX_WinFormsControls.winUserControl.DragLeave">
+            <summary>
+            Occurs when [drag leave].
+            </summary>
+        </member>
+        <member name="E:CarabiX_WinFormsControls.winUserControl.DragOver">
+            <summary>
+            Occurs when [drag over].
+            </summary>
+        </member>
+        <member name="E:CarabiX_WinFormsControls.winUserControl.GiveFeedback">
+            <summary>
+            Occurs when [give feedback].
+            </summary>
+        </member>
+        <member name="E:CarabiX_WinFormsControls.winUserControl.QueryContinueDrag">
+            <summary>
+            Occurs when [query continue drag].
+            </summary>
+        </member>
+        <member name="E:CarabiX_WinFormsControls.winUserControl.Leave">
+            <summary>
+            Occurs when [leave].
+            </summary>
+        </member>
+        <member name="E:CarabiX_WinFormsControls.winUserControl.Layout">
+            <summary>
+            Occurs when [layout].
+            </summary>
+        </member>
+        <member name="E:CarabiX_WinFormsControls.winUserControl.MarginChanged">
+            <summary>
+            Occurs when [margin changed].
+            </summary>
+        </member>
+        <member name="E:CarabiX_WinFormsControls.winUserControl.Move">
+            <summary>
+            Occurs when [move].
+            </summary>
+        </member>
+        <member name="E:CarabiX_WinFormsControls.winUserControl.PaddingChanged">
+            <summary>
+            Occurs when [padding changed].
+            </summary>
+        </member>
+        <member name="E:CarabiX_WinFormsControls.winUserControl.MouseDown">
+            <summary>
+            Occurs when [mouse down].
+            </summary>
+        </member>
+        <member name="E:CarabiX_WinFormsControls.winUserControl.MouseUp">
+            <summary>
+            Occurs when [mouse up].
+            </summary>
+        </member>
+        <member name="E:CarabiX_WinFormsControls.winUserControl.MouseHover">
+            <summary>
+            Occurs when [mouse hover].
+            </summary>
+        </member>
+        <member name="E:CarabiX_WinFormsControls.winUserControl.MouseEnter">
+            <summary>
+            Occurs when [mouse enter].
+            </summary>
+        </member>
+        <member name="E:CarabiX_WinFormsControls.winUserControl.MouseLeave">
+            <summary>
+            Occurs when [mouse leave].
+            </summary>
+        </member>
+        <member name="E:CarabiX_WinFormsControls.winUserControl.AutoSizeChanged">
+            <summary>
+            Occurs when [auto size changed].
+            </summary>
+        </member>
+        <member name="E:CarabiX_WinFormsControls.winUserControl.BackColorChanged">
+            <summary>
+            Occurs when [back color changed].
+            </summary>
+        </member>
+        <member name="E:CarabiX_WinFormsControls.winUserControl.BackgroundImageChanged">
+            <summary>
+            Occurs when [background image changed].
+            </summary>
+        </member>
+        <member name="E:CarabiX_WinFormsControls.winUserControl.BackgroundImageLayoutChanged">
+            <summary>
+            Occurs when [background image layout changed].
+            </summary>
+        </member>
+        <member name="E:CarabiX_WinFormsControls.winUserControl.BindingContextChanged">
+            <summary>
+            Occurs when [binding context changed].
+            </summary>
+        </member>
+        <member name="E:CarabiX_WinFormsControls.winUserControl.CausesValidationChanged">
+            <summary>
+            Occurs when [causes validation changed].
+            </summary>
+        </member>
+        <member name="E:CarabiX_WinFormsControls.winUserControl.ClientSizeChanged">
+            <summary>
+            Occurs when [client size changed].
+            </summary>
+        </member>
+        <member name="E:CarabiX_WinFormsControls.winUserControl.ContextMenuStripChanged">
+            <summary>
+            Occurs when [context menu strip changed].
+            </summary>
+        </member>
+        <member name="E:CarabiX_WinFormsControls.winUserControl.CursorChanged">
+            <summary>
+            Occurs when [cursor changed].
+            </summary>
+        </member>
+        <member name="E:CarabiX_WinFormsControls.winUserControl.EnabledChanged">
+            <summary>
+            Occurs when [enabled changed].
+            </summary>
+        </member>
+        <member name="E:CarabiX_WinFormsControls.winUserControl.FontChanged">
+            <summary>
+            Occurs when [font changed].
+            </summary>
+        </member>
+        <member name="E:CarabiX_WinFormsControls.winUserControl.ForeColorChanged">
+            <summary>
+            Occurs when [fore color changed].
+            </summary>
+        </member>
+        <member name="E:CarabiX_WinFormsControls.winUserControl.LocationChanged">
+            <summary>
+            Occurs when [location changed].
+            </summary>
+        </member>
+        <member name="E:CarabiX_WinFormsControls.winUserControl.RegionChanged">
+            <summary>
+            Occurs when [region changed].
+            </summary>
+        </member>
+        <member name="E:CarabiX_WinFormsControls.winUserControl.RightToLeftChanged">
+            <summary>
+            Occurs when [right to left changed].
+            </summary>
+        </member>
+        <member name="E:CarabiX_WinFormsControls.winUserControl.SizeChanged">
+            <summary>
+            Occurs when [size changed].
+            </summary>
+        </member>
+        <member name="E:CarabiX_WinFormsControls.winUserControl.TabIndexChanged">
+            <summary>
+            Occurs when [tab index changed].
+            </summary>
+        </member>
+        <member name="E:CarabiX_WinFormsControls.winUserControl.TabStopChanged">
+            <summary>
+            Occurs when [tab stop changed].
+            </summary>
+        </member>
+        <member name="F:CarabiX_WinFormsControls.winScrollPage.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winScrollPage.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winScrollPage.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:CarabiX_WinFormsControls.winScrollPage.scrollParent">
+            <summary>
+            The ScrollableControl
+            </summary>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winScrollPage.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:CarabiX_WinFormsControls.winScrollPage"/> class.
+            </summary>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winScrollPage.cxxParent_IsLoaded">
+            <summary>
+            Fire event after parent is docked. 
+            </summary>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winScrollPage.resizePanelCenterSub(System.Windows.Forms.Control,System.Windows.Forms.Control)">
+            <summary>
+            Resizes the controls inside the panel to the center of the container/panel.
+            </summary>
+            <param name="_subcontrol">The control inside the container/panel</param>
+            <param name="_container">The the panel/container in which the control is.</param>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winScrollPage.cxPanelControls(System.Windows.Forms.DockStyle,System.Boolean,System.Windows.Forms.Control[])">
+            <summary>
+            Adds controls to the cxWinScrollPage.
+            </summary>
+            <param name="dockingStyle">The docking style of the panels on which the controls are added.</param>
+            <param name="subCentered">if set to <c>true</c> the controls will be centered within the panels.</param>
+            <param name="subControls">The controls that are to be added.</param>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winScrollPage.cxControls_Add(System.Windows.Forms.Control,System.Windows.Forms.DockStyle,System.Boolean)">
+            <summary>
+            Add new control to the Scroll page
+            </summary>
+            <param name="control">The control.</param>
+            <param name="controlDockStyle">Spesifies the docking method of the control</param>
+            <param name="addSplitter">if set to <c>true</c> [add splitter].</param>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winScrollPage.cxControls_Clear">
+            <summary>
+            remove controls from the Scroll page.
+            </summary>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winScrollPage.cxControls_AddPanel">
+            <summary>
+            Adds Panel control to Scroll page.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winScrollPage.cxControls_AddPanels(System.Int32,System.Boolean)">
+            <summary>
+            Add a few panels.
+            </summary>
+            <param name="total">The total.</param>
+            <param name="clearAll">if set to <c>true</c> [clear all].</param>
+            <returns></returns>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winScrollPage.cxControls">
+            <summary>
+            return all controls.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:CarabiX_WinFormsControls.winScrollPage.cxHeading">
+            <summary>
+            Gets or sets the heading.
+            </summary>
+            <value>
+            The heading.
+            </value>
+        </member>
+        <member name="P:CarabiX_WinFormsControls.winScrollPage.cxBackColor">
+            <summary>
+            Gets or sets the color of the back.
+            </summary>
+            <value>
+            The color of the back.
+            </value>
+        </member>
+        <member name="P:CarabiX_WinFormsControls.winScrollPage.ctrlScrollBar">
+            <summary>
+            Gets or sets the CTRL scroll bar.
+            </summary>
+            <value>
+            The CTRL scroll bar.
+            </value>
+        </member>
+        <member name="E:CarabiX_WinFormsControls.winScrollPage.baseSplitterEvent">
+            <summary>
+            Occurs when [base splitter event].
+            </summary>
+        </member>
+        <member name="E:CarabiX_WinFormsControls.winScrollPage.baseControlColorEvent">
+            <summary>
+            Occurs when [base control color event].
+            </summary>
+        </member>
+        <member name="T:CarabiX_WinFormsControls.winScrollPage.newControlArgs">
+            <summary>
+             This Class Contains the EventArgs for the subcontrol ColorChanged Event.
+            </summary>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winScrollPage.newControlArgs.#ctor(System.String,System.Drawing.Color,System.Drawing.Color)">
+            <summary>
+            </summary>
+            <param name="message">The Message that is to be displayed with the event</param>
+            <param name="oldColor">The Color before it changed</param>
+            <param name="newColor">The new Color</param>
+        </member>
+        <member name="P:CarabiX_WinFormsControls.winScrollPage.newControlArgs.Message">
+            <summary>
+             The Message that is to be displayed with the event
+            </summary>
+        </member>
+        <member name="P:CarabiX_WinFormsControls.winScrollPage.newControlArgs.OldColor">
+            <summary>
+             The Color before it changed
+            </summary>
+        </member>
+        <member name="P:CarabiX_WinFormsControls.winScrollPage.newControlArgs.NewColor">
+            <summary>
+             The new Color
+            </summary>
+        </member>
+        <member name="T:CarabiX_WinFormsControls.winPanel_Ok">
+            <summary>
+            Ok Panel implementation
+            </summary>
+        </member>
+        <member name="F:CarabiX_WinFormsControls.winPanel_Ok.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winPanel_Ok.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winPanel_Ok.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winPanel_Ok.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:CarabiX_WinFormsControls.winPanel_Ok"/> class.
+            </summary>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winPanel_Ok.cxxParent_IsLoaded">
+            <summary>
+            Fire event after parent is loaded.
+            </summary>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winPanel_Ok.OnPaint(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            Raises the <see cref="E:System.Windows.Forms.Control.Paint" /> event.
+            </summary>
+            <param name="e">A <see cref="T:System.Windows.Forms.PaintEventArgs" /> that contains the event data.</param>
+        </member>
+        <member name="P:CarabiX_WinFormsControls.winPanel_Ok.ctrlOkButton">
+            <summary>
+            Gets the ok button.
+            </summary>
+            <value>
+            The ok button.
+            </value>
+        </member>
+        <member name="P:CarabiX_WinFormsControls.winPanel_Ok.ctrlCancelButton">
+            <summary>
+            Gets the cancel button.
+            </summary>
+            <value>
+            The cancel button.
+            </value>
+        </member>
+        <member name="P:CarabiX_WinFormsControls.winPanel_Ok.ctrlContainerPanel">
+            <summary>
+            Gets the container panel.
+            </summary>
+            <value>
+            The container panel.
+            </value>
+        </member>
+        <member name="P:CarabiX_WinFormsControls.winPanel_Ok.ctrlHelpButton">
+            <summary>
+            Gets the help button.
+            </summary>
+            <value>
+            The help button.
+            </value>
+        </member>
+        <member name="P:CarabiX_WinFormsControls.winPanel_Ok.cxOkText">
+            <summary>
+            Gets or sets the ok text.
+            </summary>
+        </member>
+        <member name="P:CarabiX_WinFormsControls.winPanel_Ok.cxCancelText">
+            <summary>
+            Gets or sets the cancel text.   
+            /// </summary>     
+        </member>
+        <member name="P:CarabiX_WinFormsControls.winPanel_Ok.cxCancelResult">
+            <summary>
+            Gets or sets the cancel result.
+            </summary>
+        </member>
+        <member name="P:CarabiX_WinFormsControls.winPanel_Ok.cxCancelVisible">
+            <summary>
+            Gets or sets a value indicating whether [cancel visible].
+            </summary>
+        </member>
+        <member name="P:CarabiX_WinFormsControls.winPanel_Ok.cxHelpVisible">
+            <summary>
+            Gets or sets a value indicating whether [cx help visible].
+            </summary>        
+        </member>
+        <member name="P:CarabiX_WinFormsControls.winPanel_Ok.cxApplyVisible">
+            <summary>
+            Gets or sets a value indicating whether [cx apply visible].
+            </summary>        
+        </member>
+        <member name="P:CarabiX_WinFormsControls.winPanel_Ok.cxApplyText">
+            <summary>
+            Gets or sets the apply text.
+            </summary>
+        </member>
+        <member name="E:CarabiX_WinFormsControls.winPanel_Ok.cxEvent_OkClick">
+            <summary>
+            Occurs when [ event_ ok click].
+            </summary>
+        </member>
+        <member name="E:CarabiX_WinFormsControls.winPanel_Ok.cxEvent_CancelClick">
+            <summary>
+            Occurs when [event_ cancel click].
+            </summary>
+        </member>
+        <member name="E:CarabiX_WinFormsControls.winPanel_Ok.cxEvent_ApplyClick">
+            <summary>
+            Occurs when [event_ apply click].
+            </summary>
+        </member>
+        <member name="E:CarabiX_WinFormsControls.winPanel_Ok.cxEvent_HelpClick">
+            <summary>
+            Occurs when [event_ help click].
+            </summary>
+        </member>
+        <member name="T:CarabiX_WinFormsControls.winDialog_Memo">
+            <summary>
+            Dialog to show a memo text field
+            </summary>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winDialog_Memo.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:CarabiX_WinFormsControls.winDialog_Memo"/> class.
+            </summary>
+        </member>
+        <member name="F:CarabiX_WinFormsControls.winDialog_Memo.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winDialog_Memo.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winDialog_Memo.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:CarabiX_WinFormsControls.winPanel_Transparent">
+            <summary>
+            The panel_ trans parent.
+            </summary>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winPanel_Transparent.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:CarabiX_WinFormsControls.winPanel_Transparent"/> class.
+            </summary>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winPanel_Transparent.Centre_Picture">
+            <summary>
+            Centre the picture.
+            </summary>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winPanel_Transparent.OnPaintBackground(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            The on paint background.
+            </summary>
+            <param name="e">
+            The e.
+            </param>
+        </member>
+        <member name="P:CarabiX_WinFormsControls.winPanel_Transparent.cxPicture">
+            <summary>
+            Gets or sets the picture.
+            </summary>
+            <value>
+            The picture.
+            </value>
+        </member>
+        <member name="P:CarabiX_WinFormsControls.winPanel_Transparent.cxTransparent">
+            <summary>
+            Gets or sets a value indicating whether [cx transparent].
+            </summary>
+            <value>
+              <c>true</c> if [cx transparent]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:CarabiX_WinFormsControls.winPanel_Transparent.cxCentre">
+            <summary>
+            Gets or sets a value indicating whether [centre].
+            </summary>
+            <value>
+              <c>true</c> if [centre]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:CarabiX_WinFormsControls.winPanel_Transparent.cxValue">
+            <summary>
+            Gets or sets the value.
+            </summary>
+            <value>
+            The value.
+            </value>
+        </member>
+        <member name="E:CarabiX_WinFormsControls.winPanel_Transparent.cxEvent_MouseClick">
+            <summary>
+            Occurs when [event_ mouse click].
+            </summary>
+        </member>
+        <member name="P:CarabiX_WinFormsControls.winPanel_Transparent.CreateParams">
+            <summary>
+            Gets CreateParams.
+            </summary>
+        </member>
+        <member name="T:CarabiX_WinFormsControls.winProgressCircle">
+            <summary>
+            Progress Circle
+            </summary>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winProgressCircle.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:LoadingCircle"/> class.
+            </summary>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winProgressCircle.LoadingCircle_Resize(System.Object,System.EventArgs)">
+            <summary>
+            Handles the Resize event of the LoadingCircle control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winProgressCircle.aTimer_Tick(System.Object,System.EventArgs)">
+            <summary>
+            Handles the Tick event of the aTimer control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winProgressCircle.OnPaint(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            Raises the <see cref="E:System.Windows.Forms.Control.Paint"></see> event.
+            </summary>
+            <param name="e">A <see cref="T:System.Windows.Forms.PaintEventArgs"></see> that contains the event data.</param>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winProgressCircle.GetPreferredSize(System.Drawing.Size)">
+            <summary>
+            Retrieves the size of a rectangular area into which a control can be fitted.
+            </summary>
+            <param name="proposedSize">The custom-sized area for a control.</param>
+            <returns>
+            An ordered pair of type <see cref="T:System.Drawing.Size"></see> representing the width and height of a rectangle.
+            </returns>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winProgressCircle.Darken(System.Drawing.Color,System.Int32)">
+            <summary>
+            Darkens a specified color.
+            </summary>
+            <param name="_objColor">Color to darken.</param>
+            <param name="_intPercent">The percent of darken.</param>
+            <returns>The new color generated.</returns>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winProgressCircle.GenerateColorsPallet">
+            <summary>
+            Generates the colors pallet.
+            </summary>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winProgressCircle.GenerateColorsPallet(System.Drawing.Color,System.Boolean,System.Int32)">
+            <summary>
+            Generates the colors pallet.
+            </summary>
+            <param name="_objColor">Color of the lightest spoke.</param>
+            <param name="_blnShadeColor">if set to <c>true</c> the color will be shaded on X spoke.</param>
+            <param name="_intNbSpoke">The _int nb spoke.</param>
+            <returns>
+            An array of color used to draw the circle.
+            </returns>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winProgressCircle.GetControlCenterPoint">
+            <summary>
+            Gets the control center point.
+            </summary>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winProgressCircle.GetControlCenterPoint(System.Windows.Forms.Control)">
+            <summary>
+            Gets the control center point.
+            </summary>
+            <returns>PointF object</returns>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winProgressCircle.DrawLine(System.Drawing.Graphics,System.Drawing.PointF,System.Drawing.PointF,System.Drawing.Color,System.Int32)">
+            <summary>
+            Draws the line with GDI+.
+            </summary>
+            <param name="_objGraphics">The Graphics object.</param>
+            <param name="_objPointOne">The point one.</param>
+            <param name="_objPointTwo">The point two.</param>
+            <param name="_objColor">Color of the spoke.</param>
+            <param name="_intLineThickness">The thickness of spoke.</param>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winProgressCircle.GetCoordinate(System.Drawing.PointF,System.Int32,System.Double)">
+            <summary>
+            Gets the coordinate.
+            </summary>
+            <param name="_objCircleCenter">The Circle center.</param>
+            <param name="_intRadius">The radius.</param>
+            <param name="_dblAngle">The angle.</param>
+            <returns></returns>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winProgressCircle.GetSpokesAngles">
+            <summary>
+            Gets the spokes angles.
+            </summary>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winProgressCircle.GetSpokesAngles(System.Int32)">
+            <summary>
+            Gets the spoke angles.
+            </summary>
+            <param name="_intNumberSpoke">The _int number spoke.</param>
+            <returns>
+            An array of angle.
+            </returns>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winProgressCircle.ActiveTimer">
+            <summary>
+            Actives the timer.
+            </summary>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winProgressCircle.SetCircleAppearance(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Sets the circle appearance.
+            </summary>
+            <param name="numberSpoke">The number spoke.</param>
+            <param name="spokeThickness">The spoke thickness.</param>
+            <param name="innerCircleRadius">The inner circle radius.</param>
+            <param name="outerCircleRadius">The outer circle radius.</param>
+        </member>
+        <member name="F:CarabiX_WinFormsControls.winProgressCircle.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winProgressCircle.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winProgressCircle.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:CarabiX_WinFormsControls.winProgressCircle.Color">
+            <summary>
+            Gets or sets the lightest color of the circle.
+            </summary>
+            <value>The lightest color of the circle.</value>
+        </member>
+        <member name="P:CarabiX_WinFormsControls.winProgressCircle.OuterCircleRadius">
+            <summary>
+            Gets or sets the outer circle radius.
+            </summary>
+            <value>The outer circle radius.</value>
+        </member>
+        <member name="P:CarabiX_WinFormsControls.winProgressCircle.InnerCircleRadius">
+            <summary>
+            Gets or sets the inner circle radius.
+            </summary>
+            <value>The inner circle radius.</value>
+        </member>
+        <member name="P:CarabiX_WinFormsControls.winProgressCircle.NumberSpoke">
+            <summary>
+            Gets or sets the number of spoke.
+            </summary>
+            <value>The number of spoke.</value>
+        </member>
+        <member name="P:CarabiX_WinFormsControls.winProgressCircle.Active">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:LoadingCircle"/> is active.
+            </summary>
+            <value><c>true</c> if active; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:CarabiX_WinFormsControls.winProgressCircle.SpokeThickness">
+            <summary>
+            Gets or sets the spoke thickness.
+            </summary>
+            <value>The spoke thickness.</value>
+        </member>
+        <member name="P:CarabiX_WinFormsControls.winProgressCircle.RotationSpeed">
+            <summary>
+            Gets or sets the rotation speed.
+            </summary>
+            <value>The rotation speed.</value>
+        </member>
+        <member name="P:CarabiX_WinFormsControls.winProgressCircle.StylePreset">
+            <summary>
+            Quickly sets the style to one of these presets, or a custom style if desired
+            </summary>
+            <value>The style preset.</value>
+        </member>
+        <member name="T:CarabiX_WinFormsControls.winProgressCircle.StylePresets">
+            <summary>
+            Predefined styles
+            </summary>
+        </member>
+        <member name="F:CarabiX_WinFormsControls.winProgressCircle.StylePresets.MacOSX">
+            <summary>
+            Mac OSX
+            </summary>
+        </member>
+        <member name="F:CarabiX_WinFormsControls.winProgressCircle.StylePresets.Firefox">
+            <summary>
+            FireFox
+            </summary>
+        </member>
+        <member name="F:CarabiX_WinFormsControls.winProgressCircle.StylePresets.IE7">
+            <summary>
+            IE
+            </summary>
+        </member>
+        <member name="F:CarabiX_WinFormsControls.winProgressCircle.StylePresets.Custom">
+            <summary>
+            Custom
+            </summary>
+        </member>
+        <member name="T:CarabiX_WinFormsControls.winProgressBar">
+            <summary>
+            Progress Bar
+            </summary>
+        </member>
+        <member name="F:CarabiX_WinFormsControls.winProgressBar.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winProgressBar.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winProgressBar.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winProgressBar.OnPaint(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            Raises the <see cref="E:System.Windows.Forms.Control.Paint" /> event.
+            </summary>
+            <param name="e">A <see cref="T:System.Windows.Forms.PaintEventArgs" /> that contains the event data.</param>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winProgressBar.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:CarabiX_WinFormsControls.winProgressBar"/> class.
+            </summary>
+        </member>
+        <member name="P:CarabiX_WinFormsControls.winProgressBar.Value">
+            <summary>
+            Gets or sets the current position of the progress bar.
+            </summary>
+            <returns>The position within the range of the progress bar. The default is 0.</returns>
+              <PermissionSet>
+              <IPermission class="System.Security.Permissions.EnvironmentPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Unrestricted="true" />
+              <IPermission class="System.Security.Permissions.FileIOPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Unrestricted="true" />
+              <IPermission class="System.Security.Permissions.SecurityPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Flags="UnmanagedCode, ControlEvidence" />
+              <IPermission class="System.Diagnostics.PerformanceCounterPermission, System, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Unrestricted="true" />
+              </PermissionSet>
+        </member>
+        <member name="P:CarabiX_WinFormsControls.winProgressBar.LinkColorValue">
+            <summary>
+            Gets or sets a value indicating whether [link color value].
+            </summary>
+            <value>
+              <c>true</c> if [link color value]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:CarabiX_WinFormsControls.winProgressBar.cxColor_ProgressSequence">
+            <summary>
+            Gets or sets the color progress sequence.
+            </summary>
+            <value>
+            The color progress sequence.
+            </value>
+        </member>
+        <member name="P:CarabiX_WinFormsControls.winProgressBar.cxColor_Set">
+            <summary>
+            Gets or sets the color.
+            </summary>
+            <value>
+            The color.
+            </value>
+        </member>
+        <member name="P:CarabiX_WinFormsControls.winProgressBar.cxText">
+            <summary>
+            Gets the text.
+            </summary>
+            <value>
+            The text.
+            </value>
+        </member>
+        <member name="P:CarabiX_WinFormsControls.winProgressBar.cxColor_FadeIn">
+            <summary>
+            Gets or sets a value indicating whether [color fade in].
+            </summary>
+            <value>
+              <c>true</c> if [cx color_ fade in]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:CarabiX_WinFormsControls.winProgressBar.cxColors">
+            <summary>
+            Gets or sets the colors.
+            </summary>
+            <value>
+            The cx colors.
+            </value>
+        </member>
+        <member name="P:CarabiX_WinFormsControls.winProgressBar.cxColorsText">
+            <summary>
+            Gets or sets the colors text.
+            </summary>
+            <value>
+            The cx colors text.
+            </value>
+        </member>
+        <member name="E:CarabiX_WinFormsControls.winProgressBar.cxEvent_ColorChanged">
+            <summary>
+            Occurs when [color changed].
+            </summary>
+        </member>
+        <member name="E:CarabiX_WinFormsControls.winProgressBar.cxEvent_ValueChanged">
+            <summary>
+            Occurs when [value changed].
+            </summary>
+        </member>
+        <member name="T:CarabiX_WinFormsControls.winProgress_ColorSequence">
+            <summary>
+            Progress Color Sequence
+            </summary>
+        </member>
+        <member name="F:CarabiX_WinFormsControls.winProgress_ColorSequence.NoChange">
+            <summary>
+            No Change
+            </summary>
+        </member>
+        <member name="F:CarabiX_WinFormsControls.winProgress_ColorSequence.Red2Green">
+            <summary>
+            Red to Green
+            </summary>
+        </member>
+        <member name="F:CarabiX_WinFormsControls.winProgress_ColorSequence.Green2Red">
+            <summary>
+            Green to Red
+            </summary>
+        </member>
+        <member name="F:CarabiX_WinFormsControls.winProgress_ColorSequence.Custom">
+            <summary>
+            Custom
+            </summary>
+        </member>
+        <member name="T:CarabiX_WinFormsControls.winProgressBar_TimeLeft">
+            <summary>
+            Progress bar that calculate time left
+            </summary>
+        </member>
+        <member name="F:CarabiX_WinFormsControls.winProgressBar_TimeLeft.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winProgressBar_TimeLeft.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winProgressBar_TimeLeft.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winProgressBar_TimeLeft.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:CarabiX_WinFormsControls.winProgressBar_TimeLeft"/> class.
+            </summary>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winProgressBar_TimeLeft.TimeLeft_Persent(System.Int32,System.DateTime,System.Int32@,System.Int32@,System.Int32@)">
+            <summary>
+            Calculate the remaing time left.
+            </summary>
+            <param name="aPercent">A percent.</param>
+            <param name="aStartTime">A start time.</param>
+            <param name="hours">The hours.</param>
+            <param name="minutes">The minutes.</param>
+            <param name="seconds">The seconds.</param>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winProgressBar_TimeLeft.TimeLeft_PersentAsStr(System.Int32,System.DateTime)">
+            <summary>
+            Caclucate remaining time based on percentage complete.
+            </summary>
+            <param name="aPercent">A percent.</param>
+            <param name="aStartTime">A start time.</param>
+            <returns></returns>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winProgressBar_TimeLeft.cxPercent(System.Int32)">
+            <summary>
+            Set the percent value of the progress bar.
+            </summary>
+            <param name="percent">The percent.</param>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winProgressBar_TimeLeft.cxValue(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Set the next progress value
+            </summary>
+            <param name="value">The value.</param>
+            <param name="minimum">The minimum.</param>
+            <param name="maximum">The maximum.</param>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winProgressBar_TimeLeft.cxValueInc">
+            <summary>
+            Inc the progressbar.
+            </summary>
+        </member>
+        <member name="P:CarabiX_WinFormsControls.winProgressBar_TimeLeft.cxColors">
+            <summary>
+            Gets or sets the colors.
+            </summary>
+            <value>
+            The cx colors.
+            </value>
+        </member>
+        <member name="P:CarabiX_WinFormsControls.winProgressBar_TimeLeft.ctrlProgressBar">
+            <summary>
+            Gets the progress bar.
+            </summary>
+            <value>
+            The progress bar.
+            </value>
+        </member>
+        <member name="T:CarabiX_WinFormsControls.winHotspot_Manager">
+            <summary>
+            Manages hotspot images
+            </summary>
+        </member>
+        <member name="F:CarabiX_WinFormsControls.winHotspot_Manager.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winHotspot_Manager.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winHotspot_Manager.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winHotspot_Manager.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:CarabiX_WinFormsControls.winHotspot_Manager"/> class.
+            </summary>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winHotspot_Manager.cxxParent_IsLoaded">
+            <summary>
+            Fire event after parent is loaded.
+            </summary>
+        </member>
+        <member name="E:CarabiX_WinFormsControls.winHotspot_Manager.cxEvent_MouseClick">
+            <summary>
+            Occurs when [mouse click].
+            </summary>
+        </member>
+        <member name="P:CarabiX_WinFormsControls.winHotspot_Manager.cxPicture">
+            <summary>
+            Gets or sets the picture.
+            </summary>
+            <value>
+            The picture.
+            </value>
+        </member>
+        <member name="P:CarabiX_WinFormsControls.winHotspot_Manager.cxLinkAll">
+            <summary>
+            Gets or sets a value indicating whether [link all].
+            </summary>
+            <value>
+              <c>true</c> if [cx link all]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:CarabiX_WinFormsControls.winHotspot_Manager.ctrlListBox">
+            <summary>
+            Gets the list box.
+            </summary>
+            <value>
+            The list box.
+            </value>
+        </member>
+        <member name="T:CarabiX_WinFormsControls.winDialog_CheckList">
+            <summary>
+            Windows CheckList Dialog
+            </summary>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winDialog_CheckList.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:CarabiX_WinFormsControls.winDialog_CheckList"/> class.
+            </summary>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winDialog_CheckList.cxShowDialog(System.String,System.String,System.String,System.Boolean,System.String[])">
+            <summary>
+            Creates a Checkbox from strings and Determines Which Items are Checked in the checkbox
+            </summary>
+            <param name="promptText">The prompt text.</param>
+            <param name="title">The title.</param>
+            <param name="HelpString">The Help Message You Wish to display</param>
+            <param name="checkState">Sets the Value of all checkboxes to checked or unchecked</param>
+            <param name="CheckBoxes">The check boxes.</param>
+            <returns>Checked checkboxes as strings</returns>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winDialog_CheckList.cxShowDialog_ID_Text(System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.Int32},System.Windows.Forms.DialogResult@,System.String,System.Boolean)">
+            <summary>
+            Creates a Checkbox from strings and Determines Which Items are Checked in the checkbox
+            </summary>
+            <param name="promptText">The prompt text.</param>
+            <param name="title">The title.</param>
+            <param name="HelpString">The Help Message You Wish to display</param>
+            <param name="checkState">Sets the Value of all checkboxes to checked or unchecked</param>
+            <param name="CheckBoxes">The check boxes.</param>
+            <returns>Checked checkboxes as strings</returns>
+        </member>
+        <member name="F:CarabiX_WinFormsControls.winDialog_CheckList.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winDialog_CheckList.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winDialog_CheckList.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:CarabiX_WinFormsControls.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:CarabiX_WinFormsControls.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:CarabiX_WinFormsControls.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="T:CarabiX_WinFormsControls.SecureStringEdit">
+            <summary>
+            Secure String Editor
+            </summary>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.SecureStringEdit.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:CarabiX_WinFormsControls.SecureStringEdit"/> class.
+            </summary>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.SecureStringEdit.revertText">
+            <summary>
+            Reverts to originaltext.
+            </summary>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.SecureStringEdit.TextJustChanged(System.Object,System.EventArgs)">
+            <summary>
+            Fire event when text has just changed. Turns the string into individual characters when pasting(if allowed)
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.SecureStringEdit.BuildSecureString">
+            <summary>
+            Builds the secure string from single characters at a time.
+            </summary>
+        </member>
+        <member name="P:CarabiX_WinFormsControls.SecureStringEdit.TextSecure">
+            <summary>
+            Gets the text secure.
+            </summary>
+            <value>
+            The text secure.
+            </value>
+        </member>
+        <member name="P:CarabiX_WinFormsControls.SecureStringEdit.CanPaste">
+            <summary>
+            Gets or sets a value indicating whether this instance can paste.
+            </summary>
+            <value>
+              <c>true</c> if this instance can paste; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="E:CarabiX_WinFormsControls.SecureStringEdit.cxEvent_SecureStringChanged">
+            <summary>
+            Occurs when [secure string changed].
+            </summary>
+        </member>
+        <member name="T:CarabiX_WinFormsControls.winProgressCircle_ToolStripMenuItem">
+            <summary>
+            Menu for Progress Circle
+            </summary>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winProgressCircle_ToolStripMenuItem.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:CarabiX_WinFormsControls.winProgressCircle_ToolStripMenuItem"/> class.
+            </summary>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winProgressCircle_ToolStripMenuItem.GetPreferredSize(System.Drawing.Size)">
+            <summary>
+            Retrieves the size of a rectangular area into which a control can be fitted.
+            </summary>
+            <param name="constrainingSize">The custom-sized area for a control.</param>
+            <returns>
+            An ordered pair of type <see cref="T:System.Drawing.Size"></see> representing the width and height of a rectangle.
+            </returns>
+            <PermissionSet><IPermission class="System.Security.Permissions.EnvironmentPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Unrestricted="true"/><IPermission class="System.Security.Permissions.FileIOPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Unrestricted="true"/><IPermission class="System.Security.Permissions.SecurityPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Flags="UnmanagedCode, ControlEvidence"/><IPermission class="System.Diagnostics.PerformanceCounterPermission, System, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Unrestricted="true"/></PermissionSet>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winProgressCircle_ToolStripMenuItem.OnSubscribeControlEvents(System.Windows.Forms.Control)">
+            <summary>
+            Subscribes events from the hosted control.
+            </summary>
+            <param name="control">The control from which to subscribe events.</param>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winProgressCircle_ToolStripMenuItem.OnUnsubscribeControlEvents(System.Windows.Forms.Control)">
+            <summary>
+            Unsubscribes events from the hosted control.
+            </summary>
+            <param name="control">The control from which to unsubscribe events.</param>
+        </member>
+        <member name="P:CarabiX_WinFormsControls.winProgressCircle_ToolStripMenuItem.LoadingCircleControl">
+            <summary>
+            Gets the loading circle control.
+            </summary>
+            <value>The loading circle control.</value>
+        </member>
+        <member name="T:CarabiX_WinFormsControls.winHeading">
+            <summary>
+            Top User Control to setup supporting methods and hide unused properties
+            </summary>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winHeading.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:CarabiX_WinFormsControls.winHeading"/> class.
+            </summary>
+        </member>
+        <member name="F:CarabiX_WinFormsControls.winHeading.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winHeading.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winHeading.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:CarabiX_WinFormsControls.winHeading.lblHeading">
+            <summary>
+            The Heading
+            </summary>
+        </member>
+        <member name="E:CarabiX_WinFormsControls.winHeading.cxEvent_PrinterClick">
+            <summary>
+            Occurs when [cx event_ printer click].
+            </summary>
+        </member>
+        <member name="E:CarabiX_WinFormsControls.winHeading.cxEvent_HeaderClick">
+            <summary>
+            Occurs when [cx event_ header click].
+            </summary>
+        </member>
+        <member name="P:CarabiX_WinFormsControls.winHeading.cxHeadingPanel">
+            <summary>
+            Gets the heading panel.
+            </summary>
+            <value>
+            The heading panel.
+            </value>
+        </member>
+        <member name="P:CarabiX_WinFormsControls.winHeading.cxHeadingPanelColor">
+            <summary>
+            Gets the color of the  heading panel.
+            </summary>
+            <value>
+            The color of the heading panel.
+            </value>
+        </member>
+        <member name="P:CarabiX_WinFormsControls.winHeading.cxHeading">
+            <summary>
+            Gets or sets the  heading.
+            </summary>
+            <value>
+            The  heading.
+            </value>
+        </member>
+        <member name="P:CarabiX_WinFormsControls.winHeading.cxCanPrint">
+            <summary>
+            Gets or sets a value indicating whether [cx can print].
+            </summary>
+            <value>
+              <c>true</c> if [cx can print]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="T:CarabiX_WinFormsControls.DataSet_Chart">
+             <summary>
+            Represents a strongly typed in-memory cache of data.
+            </summary>
+        </member>
+        <member name="T:CarabiX_WinFormsControls.DataSet_Chart.ApplicationDataTableDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:CarabiX_WinFormsControls.DataSet_Chart.DaysDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:CarabiX_WinFormsControls.DataSet_Chart.ChartTestDataDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:CarabiX_WinFormsControls.DataSet_Chart.ResourcesDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:CarabiX_WinFormsControls.DataSet_Chart.ApplicationDataTableRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:CarabiX_WinFormsControls.DataSet_Chart.DaysRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:CarabiX_WinFormsControls.DataSet_Chart.ChartTestDataRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:CarabiX_WinFormsControls.DataSet_Chart.ResourcesRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:CarabiX_WinFormsControls.DataSet_Chart.ApplicationDataTableRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:CarabiX_WinFormsControls.DataSet_Chart.DaysRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:CarabiX_WinFormsControls.DataSet_Chart.ChartTestDataRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:CarabiX_WinFormsControls.DataSet_Chart.ResourcesRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:CarabiX_WinFormsControls.winForm_Error">
+            <summary>
+            Error form dialog
+            </summary>
+        </member>
+        <member name="F:CarabiX_WinFormsControls.winForm_Error.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winForm_Error.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winForm_Error.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:CarabiX_WinFormsControls.winForm_Error.cxFriendlyMsg">
+            <summary>
+            Gets or sets the cx friendly Message.
+            </summary>
+            <value>
+            The cx friendly MSG.
+            </value>
+        </member>
+        <member name="T:CarabiX_WinFormsControls.winEventTrackInfo">
+            <summary>
+            Summary description for EventTrackInfo.
+            </summary>
+        </member>
+        <member name="F:CarabiX_WinFormsControls.winEventTrackInfo.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winEventTrackInfo.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:CarabiX_WinFormsControls.winEventTrackInfo"/> class.
+            </summary>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winEventTrackInfo.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winEventTrackInfo.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:CarabiX_WinFormsControls.winEventTrackInfo.SelectedObject">
+            <summary>
+            Gets or sets the selected object.
+            </summary>
+            <value>
+            The selected object.
+            </value>
+        </member>
+        <member name="P:CarabiX_WinFormsControls.winEventTrackInfo.EventList">
+            <summary>
+            Gets or sets the event list.
+            </summary>
+            <value>
+            The event list.
+            </value>
+        </member>
+        <member name="P:CarabiX_WinFormsControls.winEventTrackInfo.ContextMenu">
+            <summary>
+            Gets or sets the shortcut menu associated with the control.
+            </summary>
+            <returns>A <see cref="T:System.Windows.Forms.ContextMenu" /> that represents the shortcut menu associated with the control.</returns>
+        </member>
+        <member name="T:CarabiX_WinFormsControls.DataSet_DbAdapter">
+             <summary>
+            Represents a strongly typed in-memory cache of data.
+            </summary>
+        </member>
+        <member name="T:CarabiX_WinFormsControls.DataSet_DbAdapter.MissingObjectsDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:CarabiX_WinFormsControls.DataSet_DbAdapter.MissingObjectsRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:CarabiX_WinFormsControls.DataSet_DbAdapter.MissingObjectsRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:CarabiX_WinFormsControls.Panel_LinkItemClick">
+            <summary>
+            Link Item Click Event
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="Level">The level.</param>
+            <param name="outHeading">The out heading.</param>
+            <param name="outValue">The out value.</param>
+            <param name="outFieldName">Name of the out field.</param>
+            <param name="outFieldValue">The out field value.</param>
+        </member>
+        <member name="T:CarabiX_WinFormsControls.winPanel_BreadCrumbs">
+            <summary>
+            This class will put items on a panel and link them together
+            </summary>
+        </member>
+        <member name="F:CarabiX_WinFormsControls.winPanel_BreadCrumbs.Tag">
+            <summary>
+            Tag property
+            </summary>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winPanel_BreadCrumbs.Events(CarabiX_WinFormsControls.Panel_LinkItemClick)">
+            <summary>
+            Add events. Can ensure an event is only assigned once 
+            </summary>
+            <param name="thePanel_LinkItemClick">The panel_ link item click.</param>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winPanel_BreadCrumbs.#ctor(System.Windows.Forms.Panel)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="panel">The panel.</param>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winPanel_BreadCrumbs.#ctor(System.Windows.Forms.Panel,System.Windows.Forms.ListBox)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CarabiX_WinFormsControls.winPanel_BreadCrumbs"/> class.
+            </summary>
+            <param name="panel">The panel.</param>
+            <param name="startupValues">The startup values.</param>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winPanel_BreadCrumbs.Finalize">
+            <summary>
+            Finalizes an instance of the <see cref="T:CarabiX_WinFormsControls.winPanel_BreadCrumbs"/> class.
+            </summary>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winPanel_BreadCrumbs.Dispose">
+            <summary>
+            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winPanel_BreadCrumbs.ListBox_FromLinkPanel(System.Windows.Forms.ListBox)">
+            <summary>
+            Lists the box from link panel.
+            </summary>
+            <param name="syncList">The sync list.</param>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winPanel_BreadCrumbs.ListBox_ToLinkPanel(System.Windows.Forms.ListBox)">
+            <summary>
+            Lists the box_ to link panel.
+            </summary>
+            <param name="syncList">The sync list.</param>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winPanel_BreadCrumbs.Set(System.Int32,System.String,System.String,System.String,System.Object)">
+            <summary>
+            Sets the specified index.
+            </summary>
+            <param name="Index">The index.</param>
+            <param name="theHeading">The heading.</param>
+            <param name="theValue">The value.</param>
+            <param name="theFieldName">Name of the field.</param>
+            <param name="theFieldValue">The field value.</param>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winPanel_BreadCrumbs.Add(System.String,System.String,System.String,System.Object)">
+            <summary>
+            Add a new item(heading, value) on the panel
+            </summary>
+            <param name="theHeading">The heading.</param>
+            <param name="theValue">The value.</param>
+            <param name="theFieldName">Name of the field.</param>
+            <param name="theFieldValue">The field value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winPanel_BreadCrumbs.Remove(System.Windows.Forms.LinkLabel,System.Boolean,System.Boolean)">
+            <summary>
+            Remove the LinkLabel
+            </summary>
+            <param name="theLinkLabel">The link label.</param>
+            <param name="clearList">if set to <c>true</c> [clear list].</param>
+            <param name="clickEvent">if set to <c>true</c> [click event].</param>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winPanel_BreadCrumbs.Remove(System.String@,System.String@,System.String@,System.Object@,System.Boolean)">
+            <summary>
+            Removes the specified out heading.
+            </summary>
+            <param name="outHeading">The out heading.</param>
+            <param name="outValue">The out value.</param>
+            <param name="outFieldName">Name of the out field.</param>
+            <param name="outFieldValue">The out field value.</param>
+            <param name="clearList">if set to <c>true</c> [clear list].</param>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winPanel_BreadCrumbs.Remove(System.Windows.Forms.LinkLabel,System.String@,System.String@,System.String@,System.Object@,System.Boolean,System.Boolean)">
+            <summary>
+            Removes the specified the link label.
+            </summary>
+            <param name="theLinkLabel">The link label.</param>
+            <param name="outHeading">The out heading.</param>
+            <param name="outValue">The out value.</param>
+            <param name="outFieldName">Name of the out field.</param>
+            <param name="outFieldValue">The out field value.</param>
+            <param name="clearList">if set to <c>true</c> [clear list].</param>
+            <param name="clickEvent">if set to <c>true</c> [click event].</param>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winPanel_BreadCrumbs.Remove_All(System.Boolean)">
+            <summary>
+            Removes all bread crumbs.
+            </summary>
+            <param name="clearList">if set to <c>true</c> [clear list].</param>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winPanel_BreadCrumbs.Value(System.String@,System.String@,System.String@,System.Object@)">
+            <summary>
+            Return the value
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winPanel_BreadCrumbs.Value(System.Int32,System.String@,System.String@,System.String@,System.Object@)">
+            <summary>
+            Values the specified index.
+            </summary>
+            <param name="index">The index.</param>
+            <param name="outHeading">The out heading.</param>
+            <param name="outValue">The out value.</param>
+            <param name="outFieldName">Name of the out field.</param>
+            <param name="outFieldValue">The out field value.</param>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winPanel_BreadCrumbs.Link_Arrow(System.Windows.Forms.Panel,System.Int32)">
+            <summary>
+            Creates an arrow on the panel
+            </summary>
+            <param name="myPanel">The panel</param>
+            <param name="leftPos">Left position</param>
+            <returns></returns>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winPanel_BreadCrumbs.Link_Heading(System.Windows.Forms.Panel,System.Int32,System.String)">
+            <summary>
+            Creates a label heading on the panel
+            </summary>
+            <param name="myPanel">The panel</param>
+            <param name="leftPos">Left position</param>
+            <param name="inHeading">The heading</param>
+            <returns></returns>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winPanel_BreadCrumbs.Link_Item(System.Windows.Forms.Panel,System.Int32,System.String,System.Windows.Forms.LinkLabelLinkClickedEventHandler)">
+            <summary>
+            Creates a LinkLabel on the panel
+            </summary>
+            <param name="myPanel">The panel</param>
+            <param name="leftPos">Left position</param>
+            <param name="caption">Caption of the LinkLabel</param>
+            <param name="myEvent">The event of the LinkLabel</param>
+            <returns></returns>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winPanel_BreadCrumbs.LinkLabel_Clicked(System.Object,System.Windows.Forms.LinkLabelLinkClickedEventArgs)">
+            <summary>
+            Event for the LinkLabel
+            </summary>
+            <param name="sender">The sender</param>
+            <param name="e">Args</param>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.winPanel_BreadCrumbs.Refresh">
+            <summary>
+            Re-sync the Grid and the Panel.
+            </summary>
+        </member>
+        <member name="P:CarabiX_WinFormsControls.winPanel_BreadCrumbs.ListBox_Save">
+            <summary>
+            Sets the list box save.
+            </summary>
+            <value>
+            The list box save.
+            </value>
+        </member>
+        <member name="T:CarabiX_WinFormsControls.Label_LinkItem">
+            <summary>
+            Class define the items for the LinkItemPanel class
+            </summary>
+        </member>
+        <member name="F:CarabiX_WinFormsControls.Label_LinkItem.Heading">
+            <summary>
+            The Heading
+            </summary>
+        </member>
+        <member name="F:CarabiX_WinFormsControls.Label_LinkItem.Arrow">
+            <summary>
+            Arrow
+            </summary>
+        </member>
+        <member name="F:CarabiX_WinFormsControls.Label_LinkItem.Index">
+            <summary>
+            Index of array item
+            </summary>
+        </member>
+        <member name="F:CarabiX_WinFormsControls.Label_LinkItem.FieldName">
+            <summary>
+            The FieldName
+            </summary>
+        </member>
+        <member name="F:CarabiX_WinFormsControls.Label_LinkItem.FieldValue">
+            <summary>
+            The FieldValue
+            </summary>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.Label_LinkItem.Remove">
+            <summary>
+            Removes the item from the Panel
+            </summary>
+        </member>
+        <member name="P:CarabiX_WinFormsControls.Label_LinkItem.Width">
+            <summary>
+            Gets the width.
+            </summary>
+            <value>
+            The width.
+            </value>
+        </member>
+        <member name="P:CarabiX_WinFormsControls.Label_LinkItem.LinkValue">
+            <summary>
+            Gets or sets the link value.
+            </summary>
+            <value>
+            The link value.
+            </value>
+        </member>
+        <member name="T:CarabiX_WinFormsControls.BookMark_LinkItem">
+            <summary>
+            Bookmark LinkItems
+            </summary>
+        </member>
+        <member name="M:CarabiX_WinFormsControls.BookMark_LinkItem.#ctor(System.Windows.Forms.Panel,CarabiX_WinFormsControls.winPanel_BreadCrumbs)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CarabiX_WinFormsControls.BookMark_LinkItem"/> class.
+            </summary>
+            <param name="panel">The panel.</param>
+            <param name="linkPanel">The link panel.</param>
+        </member>
+    </members>
+</doc>
