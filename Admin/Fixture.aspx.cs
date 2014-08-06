@@ -4,12 +4,16 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data;
+using System.Data.SqlClient;
+using System.IO;
 
 public partial class Fixture : System.Web.UI.Page
 {
+    public SqlConnection con = new SqlConnection(@"Data Source=localhost;Initial Catalog=Esports;Integrated Security=True");
     protected void Page_Load(object sender, EventArgs e)
     {
-        
+        con.Open();
         CallCode();
     }
     public string Home { get; set; }
@@ -17,25 +21,20 @@ public partial class Fixture : System.Web.UI.Page
 
     void CallCode()
     {
-        string[] teams = new string[] { "A", "B", "C", "D" };
+        string[] teams = new string[GridView2.Rows.Count];
+            for (int i = 0; i < GridView2.Rows.Count ;i++)
+            {
+                teams[i] = GridView2.Rows[i].Cells[1].Text;
+            }
+        TextBox1.Text = "" + teams.Length;
         List<Fixture> fixtures = CalculateFixtures(teams);
-        /*DataTable table = new DataTable();
-        TableRow row1 = new TableRow();
-        TableCell tCell = new TableCell();
         for(int i = 0; i < fixtures.Count;i++)
         {
-            some.Text += fixtures[i].Home;
-            Label2.Text += fixtures[i].Away;
-            tCell.Text = "Row " + i + ", Cell " + (i+1);
-            row1.Cells.Add(tCell);
-            Table1.Rows.Add(row1);  
-            //GridView1.
-            //GridView1.
+            
+            SqlCommand cmd = new SqlCommand("Insert into Fixtures values('" + fixtures[i].Home + "','" + fixtures[i].Away + "','" + i + "')", con);
+            cmd.ExecuteNonQuery();
         }
-         */
-
-        GridView1.DataSource = fixtures;
-        GridView1.DataBind();
+        con.Close();
     }
 
     List<Fixture> CalculateFixtures(string[] teams)

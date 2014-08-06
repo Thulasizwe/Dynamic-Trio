@@ -8,19 +8,41 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
-    <asp:TextBox ID="some" runat="server">
-
-    </asp:TextBox>
-        <br />
-    </div>
-        <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
         <br />
         <br />
-        <asp:Table ID="Table1" runat="server">
-        </asp:Table>
-        <asp:GridView ID="GridView1" runat="server">
+        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" 
+        DataSourceID="SqlDataSource1">
+            <Columns>
+                <asp:BoundField DataField="FixtureID" HeaderText="FixtureID" 
+                    InsertVisible="False" ReadOnly="True" SortExpression="FixtureID" />
+                <asp:BoundField DataField="HomeTeam" HeaderText="HomeTeam" 
+                    SortExpression="HomeTeam" />
+                <asp:BoundField DataField="AwayTeam" HeaderText="AwayTeam" 
+                    SortExpression="AwayTeam" />
+                <asp:BoundField DataField="DateTime" HeaderText="DateTime" 
+                    SortExpression="DateTime" />
+            </Columns>
         </asp:GridView>
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
+        ConnectionString="<%$ ConnectionStrings:EsportsConnectionString %>" 
+        SelectCommand="SELECT * FROM [Fixtures]"></asp:SqlDataSource>
+    <br />
+    <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" 
+        DataKeyNames="TeamID" DataSourceID="SqlDataSource2" Visible="False">
+        <Columns>
+            <asp:BoundField DataField="TeamID" HeaderText="TeamID" InsertVisible="False" 
+                ReadOnly="True" SortExpression="TeamID" />
+            <asp:BoundField DataField="TeamName" HeaderText="TeamName" 
+                SortExpression="TeamName" />
+            <asp:BoundField DataField="TeamCaptain" HeaderText="TeamCaptain" 
+                SortExpression="TeamCaptain" />
+            <asp:BoundField DataField="TeamZone" HeaderText="TeamZone" 
+                SortExpression="TeamZone" />
+        </Columns>
+    </asp:GridView>
+    <asp:SqlDataSource ID="SqlDataSource2" runat="server" 
+        ConnectionString="<%$ ConnectionStrings:EsportsConnectionString %>" 
+        SelectCommand="SELECT * FROM [SetupTeams]"></asp:SqlDataSource>
     </form>
 </body>
 </html>
