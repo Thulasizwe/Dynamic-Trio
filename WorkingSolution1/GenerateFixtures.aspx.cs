@@ -12,99 +12,187 @@ public partial class GenerateFixtures : System.Web.UI.Page
     public int gameweeks = 0;
     public int gamesPerWeek = 0;
     public int numberOfFixtures = 0;
+    public String TypeOfFixtures = "";
+    public List<GenerateFixtures> fixtures;
+    public int LeagueID = 0;
     private SqlConnection sqlCon = new SqlConnection(@"Data Source=localhost;Initial Catalog=Esports;Integrated Security=True");
     protected void Page_Load(object sender, EventArgs e)
     {
-        //Text
-        sqlCon.Open();
-        numberOfFixtures = 2;
-        Label1.Visible = true;
-
-    }
+        numberOfFixtures = 1;
+     }
     public string Home { get; set; }
     public string Away { get; set; }
 
+    public string FixtureTime { get; set; }
     void CallCode(int LeagueID)
     {
         string[] teamss = new string[GridView1.Rows.Count];
+        numberOfFixtures = Convert.ToInt32(DropDownList3.SelectedValue);
         gameweeks = GridView1.Rows.Count;
         gamesPerWeek = GridView1.Rows.Count;
         for (int i = 0; i < GridView1.Rows.Count; i++)
         {
-           teamss[i] = GridView1.Rows[i].Cells[0].Text;
+           teamss[i] = GridView1.Rows[i].Cells[1].Text;
         }
-        List<GenerateFixtures> fixtures = CalculateFixtures(teamss);
+        
+        gamesPerWeek = teamss.Length;
+        gameweeks = teamss.Length;
+        fixtures = CalculateFixtures(teamss);
         int a = 0;
+        int o = 0;
         for (int i = 0; i < fixtures.Count; i++)
         {
-            a = a + 1;
-            if (a <= gamesPerWeek)
+            if (a < gamesPerWeek)
             {
-                SqlCommand sqlCommand = new SqlCommand("INSERT INTO Fixtures VALUES ('" + fixtures[i].Home + "','" + fixtures[i].Away + "','" + "Week 1" + "')", sqlCon);
-                sqlCommand.ExecuteNonQuery();
+                a = a + 1;
             }
-            else if (a <= (gamesPerWeek * 2))
+            else
             {
-                SqlCommand sqlCommand = new SqlCommand("INSERT INTO Fixtures VALUES ('" + fixtures[i].Home + "','" + fixtures[i].Away + "','" + "Week 2" + "')", sqlCon);
-                sqlCommand.ExecuteNonQuery();
+                a = 0;
+                o = o + 1;
             }
-            else if (a <= (gamesPerWeek * 3))
-            {
-                SqlCommand sqlCommand = new SqlCommand("INSERT INTO Fixtures VALUES ('" + fixtures[i].Home + "','" + fixtures[i].Away + "','" + "Week 3" + "')", sqlCon);
-                sqlCommand.ExecuteNonQuery();
-            }
-            else if (a <= (gamesPerWeek * 4))
-            {
-                SqlCommand sqlCommand = new SqlCommand("INSERT INTO Fixtures VALUES ('" + fixtures[i].Home + "','" + fixtures[i].Away + "','" + "Week 4" + "')", sqlCon);
-                sqlCommand.ExecuteNonQuery();
-            }
-            else if (a <= (gamesPerWeek * 5))
-            {
-                SqlCommand sqlCommand = new SqlCommand("INSERT INTO Fixtures VALUES ('" + fixtures[i].Home + "','" + fixtures[i].Away + "','" + "Week 5" + "')", sqlCon);
-                sqlCommand.ExecuteNonQuery();
-            }
-            else if (a <= (gamesPerWeek * 6))
-            {
-                SqlCommand sqlCommand = new SqlCommand("INSERT INTO Fixtures VALUES ('" + fixtures[i].Home + "','" + fixtures[i].Away + "','" + "Week 6" + "')", sqlCon);
-                sqlCommand.ExecuteNonQuery();
-            }
+                fixtures[i].FixtureTime = "Week " + (o + 1);
 
-        }
+            SqlCommand sqlCommand = new SqlCommand("INSERT INTO Fixtures VALUES ('" + fixtures[i].Home + "','" + fixtures[i].Away + "','" + fixtures[i].FixtureTime + "')", sqlCon);
+            sqlCommand.ExecuteNonQuery();
+            
+            }
+        Label1.Text = "Fixutres have been generated";
+        Label1.Visible = true;
     }
+   
+    
 
     List<GenerateFixtures> CalculateFixtures(string[] teams)
     {
-        List<GenerateFixtures> fixtures = new List<GenerateFixtures>();
+        fixtures = new List<GenerateFixtures>();
         int c = 0;
-        for (int i = 0; i < teams.Length; i++)
-            {
-                for (int j = 0; j < teams.Length; j++)
-                {
-                    if (teams[i] != teams[j])
-                    {
-                        fixtures.Add(new GenerateFixtures() { Home = teams[i], Away = teams[j] });
-                        c = c + 1;
-                    }
-                }
-            }
-        for (int i = 0; i < fixtures.Count; i++)
+        String hom = "";
+        String awa = "";
+        Random ri = new Random();
+        int num = 0;
+        int ii = 0;
+        if (TypeOfFixtures == "League")
         {
-            GenerateFixtures temp = fixtures[i];
-            Random r = new Random();
-            int randomIndex = r.Next(i, fixtures.Count);
-            fixtures[i] = fixtures[randomIndex];
-            fixtures[randomIndex] = temp;
-        }
+            for (int i = 0; i < teams.Length; i++)
+            {
+                num = num + i;
+            }
+            while (c < numberOfFixtures)
+            {
 
+                if ((numberOfFixtures - c) == 1)
+                {
+                    while (ii < num)
+                    {
+                        int randomIndex = ri.Next(0, teams.Length);
+                        int rrandomIndex = ri.Next(0, teams.Length);
+                        while ((fixtures.Contains(new GenerateFixtures() { Home = teams[rrandomIndex], Away = teams[randomIndex], FixtureTime = " " }).Equals(true)) || (fixtures.Contains(new GenerateFixtures() { Home = teams[randomIndex], Away = teams[rrandomIndex], FixtureTime = " " }).Equals(true)) || (teams[randomIndex] == teams[rrandomIndex]))
+                        {
+                            randomIndex = ri.Next(0, teams.Length);
+                            rrandomIndex = ri.Next(0, teams.Length);
+                        }
+                        fixtures.Add(new GenerateFixtures() { Home = teams[rrandomIndex], Away = teams[randomIndex], FixtureTime = " " });
+                        ii = ii + 1;
+                        //c = c + 1;
+                    }
+                    c = c + 1;
+                }
+                else
+                {
+                    for (int i = 0; i < teams.Length; i++)
+                    {
+                        for (int j = 0; j < teams.Length; j++)
+                        {
+                            if (teams[i] != teams[j])
+                            {
+                                fixtures.Add(new GenerateFixtures() { Home = teams[i], Away = teams[j], FixtureTime = " " });
+                                //c = c + 1;
+                            }
+                        }
+                    }
+                    c = c + 2;
+                }
+
+            }
+        
+        }
+        else
+        {
+            List<String> chosen = new List<String>();
+            for (int i = 0; i < teams.Length / 2; i++)
+            {
+                        int randomIndex = ri.Next(0, teams.Length);
+                        int rrandomIndex = ri.Next(0, teams.Length);
+                        hom = teams[randomIndex];
+                        awa = teams[rrandomIndex];
+                        bool found = false;
+                        while (found.Equals(false))
+                        {
+                            bool b = chosen.Contains(hom);
+                            bool bb = chosen.Contains(awa);
+                            if (b.Equals(true) || bb.Equals(true) || (hom == awa))
+                            {
+                                randomIndex = ri.Next(0, teams.Length);
+                                rrandomIndex = ri.Next(0, teams.Length);
+                                hom = teams[randomIndex];
+                                awa = teams[rrandomIndex];
+                            }
+                            else
+                            {
+                                break;
+                            }
+                        }
+                        fixtures.Add(new GenerateFixtures() { Home = hom, Away = awa, FixtureTime = " " });
+                        chosen.Add(hom);
+                        chosen.Add(awa);
+                    }
+                     
+        }
+        for (int i = 0; i < fixtures.Count; i++)
+            {
+                GenerateFixtures temp = fixtures[i];
+                Random r = new Random();
+                int randomIndex = r.Next(i, fixtures.Count);
+                fixtures[i] = fixtures[randomIndex];
+                fixtures[randomIndex] = temp;
+            }
+        
         return fixtures;
     }
-
-    protected void Button1_Click(object sender, EventArgs e)
+    protected void Button1_Click1(object sender, EventArgs e)
     {
-        int LeagueID = DropDownList1.SelectedIndex;
-        GridView1.Enabled = true;
-        GridView1.Visible = true;
-        CallCode(LeagueID);
-        Label1.Text = "Fixtures have been generated";
+        Label5.Visible = false;
+        Label4.Visible = false;
+        Label3.Visible = false;
+        Boolean error = false;
+        if (DropDownList1.SelectedIndex == 0)
+        {
+            error = true;
+            Label5.Visible = true;
+            Label5.Text = "Please select a league";
+        }
+        else if (DropDownList2.SelectedIndex == 0)
+        {
+            error = true;
+            Label4.Visible = true;
+            Label4.Text = "Please select either league or tournament";
+        }
+        else if (DropDownList3.SelectedIndex == 0)
+        {
+            error = true;
+            Label3.Visible = true;
+            Label3.Text = "Please select the number of fixtures";
+        }
+        else if (error == false)
+        {
+            if (DropDownList2.SelectedValue == "League")
+                TypeOfFixtures = "League";
+            else if (DropDownList2.SelectedValue == "Tournament")
+                TypeOfFixtures = "Tournament";
+            sqlCon.Open();
+            CallCode(LeagueID);
+        }
     }
+   
 }
