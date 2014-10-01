@@ -15,7 +15,7 @@ public partial class GenerateFixtures : System.Web.UI.Page
     public String TypeOfFixtures = "";
     public List<GenerateFixtures> fixtures;
     public int LeagueID = 0;
-    private SqlConnection sqlCon = new SqlConnection(@"Data Source=contactASPDB.mssql.somee.com;Initial Catalog=contactASPDB;Integrated Security=False");
+    private SqlConnection sqlCon = new SqlConnection(@"Password=6sckfes4zr;Persist Security Info=False;User ID=mamadi_k_SQLLogin_1;Initial Catalog=contactASPDB;Data Source=contactASPDB.mssql.somee.com;");
     protected void Page_Load(object sender, EventArgs e)
     {
         numberOfFixtures = 1;
@@ -56,8 +56,14 @@ public partial class GenerateFixtures : System.Web.UI.Page
             SqlCommand sqlCommand = new SqlCommand("INSERT INTO Fixtures VALUES ('" + fixtures[i].Home + "','" + fixtures[i].Away + "','" + fixtures[i].FixtureTime + "')", sqlCon);
             sqlCommand.ExecuteNonQuery();
             
-            }
-        Label1.Text = "Fixutres have been generated";
+        }
+        Label1.Text = "Fixtures have been generated";
+        DateTime dateValue = DateTime.Now;
+        string MySQLFormatDate = dateValue.ToString("yyyy-MM-dd HH:mm:ss");
+        SqlCommand sqlCommand1 = new SqlCommand("INSERT INTO AuditLog VALUES ('" + 11 + "','" + Label1.Text + "','" + MySQLFormatDate + "')", sqlCon);
+        sqlCommand1.ExecuteNonQuery();
+            
+        
         Label1.Visible = true;
     }
    
