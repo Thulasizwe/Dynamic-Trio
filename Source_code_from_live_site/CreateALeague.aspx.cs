@@ -14,8 +14,9 @@ public partial class CreateALeague : System.Web.UI.Page
         private int team_ID;
         private string league_name;
         private int league_ID;
-        
-        private SqlConnection sqlCon = new SqlConnection(@"Data Source=contactASPDB.mssql.somee.com;Initial Catalog=contactASPDB;Integrated Security=True");
+
+        private SqlConnection sqlCon = new SqlConnection(@"Password=6sckfes4zr;Persist Security Info=False;User ID=mamadi_k_SQLLogin_1;Initial Catalog=contactASPDB;Data Source=contactASPDB.mssql.somee.com;");
+
         public CreateALeague()
         {
             score = "";
@@ -77,11 +78,17 @@ public partial class CreateALeague : System.Web.UI.Page
         }
         if (valid == true )
         {
-            SqlCommand sqlCommand = new SqlCommand("INSERT INTO SetupLeague VALUES ('" + leagueName.Text + "','" + TextBox1.Text + "','" + TextBox2.Text + "','" + gameType.SelectedIndex + "')", sqlCon);
+            //TextBox1.Text = leagueName.Text;
+            SqlCommand sqlCommand = new SqlCommand("INSERT INTO SetupLeague VALUES ('" + leagueName.Text + "','" + int.Parse(TextBox1.Text) + "','" + int.Parse(TextBox2.Text) + "','" + gameType.SelectedIndex + "')", sqlCon);
             sqlCommand.ExecuteNonQuery();
+            LeagueSuccess.Text = "The league " + leagueName.Text + " has been created and " + gameType.SelectedIndex;
+            DateTime dateValue = DateTime.Now;
+            string MySQLFormatDate = dateValue.ToString("yyyy-MM-dd HH:mm:ss");
+            SqlCommand sqlCommand1 = new SqlCommand("INSERT INTO AuditLog VALUES ('" + 11 + "','" + LeagueSuccess.Text + "','" + MySQLFormatDate + "')", sqlCon);
+            sqlCommand1.ExecuteNonQuery();
             LeagueNameError.Visible = false;
             GameNameError.Visible = false ;
-            LeagueSuccess.Text = "The league " + leagueName.Text + " has been created and " + gameType.SelectedIndex; 
+             
             LeagueSuccess.Visible = true;
         }
   
