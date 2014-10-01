@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -14,7 +14,7 @@ public partial class CreateATeam : System.Web.UI.Page
     private string team_captain;
     private string team_zone;
     private int team_ID;
-    private SqlConnection sqlCon = new SqlConnection(@"Data Source=contactASPDB.mssql.somee.com;Initial Catalog=contactASPDB;Integrated Security=False");
+    private SqlConnection sqlCon = new SqlConnection(@"Password=6sckfes4zr;Persist Security Info=False;User ID=mamadi_k_SQLLogin_1;Initial Catalog=contactASPDB;Data Source=contactASPDB.mssql.somee.com;");
     public CreateATeam()
     {
         team_name = "";
@@ -53,11 +53,15 @@ public partial class CreateATeam : System.Web.UI.Page
         {
             SqlCommand sqlCommand = new SqlCommand("INSERT INTO SetupTeams VALUES ('" + teamName.Text + "','" + teamCaptain.SelectedIndex + "','" + TeamZone.SelectedItem + "')",sqlCon);
             sqlCommand.ExecuteNonQuery();
-            
+            TeamSuccess.Text = "The team " + teamName.Text + " has been created, captain : " + teamCaptain.SelectedItem + " and the team zone selected is " + TeamZone.SelectedItem;
+            DateTime dateValue = DateTime.Now;
+            string MySQLFormatDate = dateValue.ToString("yyyy-MM-dd HH:mm:ss");
+            SqlCommand sqlCommand1 = new SqlCommand("INSERT INTO AuditLog VALUES ('" + 11 + "','" + TeamSuccess.Text + "','" + MySQLFormatDate + "')", sqlCon);
+            sqlCommand1.ExecuteNonQuery();
             TeamNameError.Visible = false;
             TeamCaptainError.Visible = false;
             TeamZoneError.Visible = false;
-            TeamSuccess.Text = "The team " + teamName.Text + " has been created, captain : " + teamCaptain.SelectedItem + " and the team zone selected is " + TeamZone.SelectedItem;
+            
             TeamSuccess.Visible = true;
         }
         
