@@ -2,14 +2,14 @@
 
 <html>
 	<head runat="server">
-		<link rel="stylesheet" type="text/css" href="style.css">
+		<link rel="stylesheet" type="text/css" href="style/style.css">
         <title></title>
         <script type="text/javascript" src="sliderengine/jquery.js"></script><script type="text/javascript" src="sliderengine/jquery.hislider.js"></script>
 	</head>
 	<body>
 		<div id="header">
 			<div id = "logo">
-				<img src = "logo.png" width = "150" height = "150" alt="img"/>
+				<img src = "images/logo.png" width = "150" height = "150" alt="img"/>
 			</div>
 		</div>
 		<header class="blue">
@@ -18,7 +18,7 @@
 					<li><a href="javascript:void(0);">Captain</a></li>
 					<li><a href="javascript:void(0);">Teams</a></li>
 					<li><a href="javascript:void(0);">Messages</a></li>
-					<li><a href="javascript:void(0);">Admin</a></li>
+					<li><a href="Admin.aspx">Admin</a></li>
 					<li><a href="javascript:void(0);">Logouts</a></li>
 				</ul>
 			</header>
@@ -44,9 +44,9 @@
 		<div id = "upcoming">
 				<h1> Upcoming </h1>
 			<div id="in">
-				<img src="chelsea.jpg" width="80" height="80"/><br><br>
-				<img src="v.png" width="40" height="40"/><br><br>
-				<img src="liverpool.png" width="80" height="80"/>
+				<img src="images/chelsea.jpg" width="80" height="80"/><br><br>
+				<img src="images/v.png" width="40" height="40"/><br><br>
+				<img src="images/liverpool.png" width="80" height="80"/>
 			</div>
 		</div>
 
