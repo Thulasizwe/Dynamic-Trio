@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -20,8 +20,8 @@ public partial class GenerateFixtures : System.Web.UI.Page
     {
         numberOfFixtures = 1;
      }
-    public string Home { get; set; }
-    public string Away { get; set; }
+    public int Home { get; set; }
+    public int Away { get; set; }
 
     public string FixtureTime { get; set; }
     void CallCode(int LeagueID)
@@ -52,12 +52,11 @@ public partial class GenerateFixtures : System.Web.UI.Page
                 o = o + 1;
             }
                 fixtures[i].FixtureTime = "Week " + (o + 1);
-
-            SqlCommand sqlCommand = new SqlCommand("INSERT INTO Fixtures VALUES ('" + fixtures[i].Home + "','" + fixtures[i].Away + "','" + fixtures[i].FixtureTime + "')", sqlCon);
+                SqlCommand sqlCommand = new SqlCommand("INSERT INTO Fixtures VALUES ('" + fixtures[i].Home + "','" + fixtures[i].Away + "','" + fixtures[i].FixtureTime + "','" + DropDownList1.SelectedIndex + "')", sqlCon);
             sqlCommand.ExecuteNonQuery();
             
         }
-        Label1.Text = "Fixtures have been generated";
+        Label1.Text = "Fixtures have been generated for league " + DropDownList1.SelectedValue;
         DateTime dateValue = DateTime.Now;
         string MySQLFormatDate = dateValue.ToString("yyyy-MM-dd HH:mm:ss");
         SqlCommand sqlCommand1 = new SqlCommand("INSERT INTO AuditLog VALUES ('" + 11 + "','" + Label1.Text + "','" + MySQLFormatDate + "')", sqlCon);
@@ -93,12 +92,12 @@ public partial class GenerateFixtures : System.Web.UI.Page
                     {
                         int randomIndex = ri.Next(0, teams.Length);
                         int rrandomIndex = ri.Next(0, teams.Length);
-                        while ((fixtures.Contains(new GenerateFixtures() { Home = teams[rrandomIndex], Away = teams[randomIndex], FixtureTime = " " }).Equals(true)) || (fixtures.Contains(new GenerateFixtures() { Home = teams[randomIndex], Away = teams[rrandomIndex], FixtureTime = " " }).Equals(true)) || (teams[randomIndex] == teams[rrandomIndex]))
+                        while ((fixtures.Contains(new GenerateFixtures() { Home = (rrandomIndex + 1), Away = (randomIndex + 1), FixtureTime = " " }).Equals(true)) || (fixtures.Contains(new GenerateFixtures() { Home = ( randomIndex + 1), Away = (rrandomIndex + 1), FixtureTime = " " }).Equals(true)) || (teams[randomIndex] == teams[rrandomIndex]))
                         {
                             randomIndex = ri.Next(0, teams.Length);
                             rrandomIndex = ri.Next(0, teams.Length);
                         }
-                        fixtures.Add(new GenerateFixtures() { Home = teams[rrandomIndex], Away = teams[randomIndex], FixtureTime = " " });
+                        fixtures.Add(new GenerateFixtures() { Home = (rrandomIndex + 1), Away = ( randomIndex + 1) , FixtureTime = " " });
                         ii = ii + 1;
                         //c = c + 1;
                     }
@@ -112,8 +111,7 @@ public partial class GenerateFixtures : System.Web.UI.Page
                         {
                             if (teams[i] != teams[j])
                             {
-                                fixtures.Add(new GenerateFixtures() { Home = teams[i], Away = teams[j], FixtureTime = " " });
-                                //c = c + 1;
+                                fixtures.Add(new GenerateFixtures() { Home = (i + 1), Away = ( j + 1), FixtureTime = " " });
                             }
                         }
                     }
@@ -149,7 +147,7 @@ public partial class GenerateFixtures : System.Web.UI.Page
                                 break;
                             }
                         }
-                        fixtures.Add(new GenerateFixtures() { Home = hom, Away = awa, FixtureTime = " " });
+                        fixtures.Add(new GenerateFixtures() { Home = (randomIndex + 1), Away = ( rrandomIndex + 1), FixtureTime = " " });
                         chosen.Add(hom);
                         chosen.Add(awa);
                     }
