@@ -129,9 +129,12 @@
                 <td class="style7">
                     League</td>
                 <td class="style8">
-                    <asp:DropDownList ID="LeagueDrop" runat="server" DataSourceID="SqlDataSource6" 
+                    <asp:DropDownList ID="LeagueDrop" runat="server" DataSourceID="SqlDataSource7" 
                         DataTextField="LeagueName" DataValueField="LeagueName">
                     </asp:DropDownList>
+                    <asp:SqlDataSource ID="SqlDataSource7" runat="server" 
+                        ConnectionString="<%$ ConnectionStrings:contactASPDBConnectionString %>" 
+                        SelectCommand="SELECT * FROM [SetupLeague]"></asp:SqlDataSource>
                 </td>
             </tr>
             <tr>

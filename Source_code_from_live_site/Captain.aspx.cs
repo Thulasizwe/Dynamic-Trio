@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,11 +11,11 @@ using System.IO;
 public partial class Captain : System.Web.UI.Page
 {
 
-    public SqlConnection con = new SqlConnection(@"Data Source=contactASPDB.mssql.somee.com;Initial Catalog=contactASPDB;Integrated Security=False");
+    private SqlConnection sqlCon = new SqlConnection(@"Password=6sckfes4zr;Persist Security Info=False;User ID=mamadi_k_SQLLogin_1;Initial Catalog=contactASPDB;Data Source=contactASPDB.mssql.somee.com;");
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        con.Open();
+        sqlCon.Open();
     }
 
         private string name;
@@ -84,11 +84,11 @@ public partial class Captain : System.Web.UI.Page
         {
 
 
-            SqlCommand cmd = new SqlCommand("Insert into LeagueTeams values('" + DropTeam.SelectedValue + "','" + dropLeague.SelectedValue + "','" + dropGame.SelectedValue + "')", con);
+            SqlCommand cmd = new SqlCommand("Insert into LeagueTeams values('" + DropTeam.SelectedIndex + "','" + dropLeague.SelectedIndex + "','" + dropGame.SelectedIndex + "')", sqlCon);
             cmd.ExecuteNonQuery();
-            con.Close();
-
-            Label1.Text = "Leaugue Joined";
+         //   con.Close();
+            Label1.Visible = true;
+            Label1.Text = "League Joined";
         }
         protected void Button2_Click(object sender, EventArgs e)
         {
@@ -101,7 +101,7 @@ public partial class Captain : System.Web.UI.Page
                 string fileName = "Games" + "\\" + fn + "_" + DateTime.Now.Day + "_" + DateTime.Now.Month + "_" +
                                   DateTime.Now.Year + ext;
                 string SaveLocation = Server.MapPath("Attachments") + "\\" + fileName;
-                try
+                //try
                 {
                     double size = ((double)FileUpload1.PostedFile.ContentLength) / (1024 * 1024);
                     // Maximum 5 Mb file size
@@ -113,16 +113,16 @@ public partial class Captain : System.Web.UI.Page
                         Directory.CreateDirectory(Server.MapPath("Attachments") + "\\Games");
                     FileUpload1.PostedFile.SaveAs(SaveLocation);
 
-                    SqlCommand cmd = new SqlCommand("Insert into Results values('" + YourTeamDrop.SelectedValue + "','" + OpponentDrop.SelectedValue + "','" + LeagueDrop.SelectedItem + "','" + YourText.Text + "','" + OpponentText.Text + "','" + GameDrop.SelectedItem + "','" + "false" + "','" + SaveLocation + "')", con);
+                    SqlCommand cmd = new SqlCommand("Insert into Results values('" + YourTeamDrop.SelectedIndex + "','" + OpponentDrop.SelectedIndex + "','" + LeagueDrop.SelectedIndex + "','" + YourText.Text + "','" + OpponentText.Text + "','" + GameDrop.SelectedIndex + "','" + "false" + "','" + SaveLocation + "')", sqlCon);
                     cmd.ExecuteNonQuery();
                     //
                     UploadLabel.Text = "Upload Successful";
                 }
-                catch (Exception)
+                //catch (Exception)
                 {
-                    UploadLabel.Text = "Upload unsuccessful, please try again";
+                //    UploadLabel.Text = "Upload unsuccessful, please try again";
                 }
             }
-            con.Close();
+           // con.Close();
         }
 }
