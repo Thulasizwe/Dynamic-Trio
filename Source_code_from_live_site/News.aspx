@@ -62,7 +62,7 @@
                     DataValueField="LeagueID" Height="16px" Width="231px">
                 </asp:DropDownList>
                 <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
-                    ConnectionString="<%$ ConnectionStrings:EsportsConnectionString %>" 
+                   ConnectionString="<%$ ConnectionStrings:contactASPDBConnectionString %>" 
                     SelectCommand="SELECT * FROM [SetupLeague]"></asp:SqlDataSource>
             </td>
         </tr>
