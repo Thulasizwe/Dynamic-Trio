@@ -5,6 +5,7 @@
 		<link rel="stylesheet" type="text/css" href="style/style.css">
         <title></title>
         <script type="text/javascript" src="sliderengine/jquery.js"></script><script type="text/javascript" src="sliderengine/jquery.hislider.js"></script>
+       
 	</head>
 	<body>
 		<div id="header">
@@ -29,14 +30,15 @@
 		<div id = "wrapper">
 			
 			<div id="content">
-				
-			</div>
-			<!--<form>
+				<!--<form>
 			    <input name="name" placeholder="What is your name?" class="name" required />
 			    <input name="emailaddress" placeholder="What is your email?" class="email" type="email" required />
 			    <textarea rows="4" cols="50" name="subject" placeholder="Please enter your message" class="message" required></textarea>
 			    <input name="submit" class="btn" type="submit" value="Send" />
 			</form>-->
+               
+			</div>
+			
 		</div>
 		<div id = "news">
 				<h1> News </h1>

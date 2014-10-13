@@ -15,6 +15,16 @@ body {
     font-family: 'Open Sans';
 }
 
+#element_to_pop_up,#create,#send,#league,#results,#new,#struct  
+{
+    display:none;
+    width: 500px;
+    height: 400px;
+    border: solid 2px;
+     }
+
+
+
 header {
     padding: 20px;
     background: #444;
