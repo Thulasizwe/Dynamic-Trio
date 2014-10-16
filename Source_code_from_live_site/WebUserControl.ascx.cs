@@ -42,7 +42,7 @@ public partial class WebUserControl : System.Web.UI.UserControl
             }
             
         }
-        string query = "select * from contactPerson where ScreenName = " + user;
+        string query = "select * from contactPerson where ScreenName = '" + user + "'";
         int userSecurity = 0;
 
        
