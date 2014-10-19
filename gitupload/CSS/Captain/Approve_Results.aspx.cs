@@ -25,6 +25,7 @@ public partial class Captain_Approve_Results : System.Web.UI.Page
         string theirName;
         string yourName;
         string status="false";
+        string image;
 
         //Get the current team
         SqlDataReader reader = null;
@@ -54,6 +55,7 @@ public partial class Captain_Approve_Results : System.Web.UI.Page
         reader = comm.ExecuteReader();
         reader.Read();
         opponentID = Convert.ToInt32(reader["HomeTeamID"].ToString());
+        image = reader["ResultPath"].ToString();
         reader.Close();
 
         comm = new SqlCommand("select * from SetupTeams where TeamID='" + opponentID + "'", sqlCon);
@@ -72,8 +74,11 @@ public partial class Captain_Approve_Results : System.Web.UI.Page
         lblopponent.Text = theirName;
         lblscore1.Text = away;
         lblScore2.Text = home;
- 
 
+       //come back to this
+        Image1.ImageUrl = "~/C:/Users/Thula/Documents/GitHub/Dynamic-Trio/CSS/Captain/Attachments/Games/GamesResult_19_10_2014.jpg";
+      
+        
     }
 
 

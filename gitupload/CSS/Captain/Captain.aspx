@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Captain.aspx.cs" Inherits="Captain" %>4
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Captain.aspx.cs" Inherits="Captain" %>
 
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -45,16 +45,6 @@
                
                 <!-- Element to pop up -->
               
-                <div id = "approve">
-                    <form id="form2" runat="server">
-
-                        <asp:Label ID="lblTeam" runat="server">Team Name</asp:Label>
-                        <asp:Label ID="lblOpponent" runat="server">Team Name</asp:Label>
-                        <label> Uploaded by: </label> <asp:Label ID="captainName" runat="server">Captain Name</asp:Label>
-                        <asp:Button ID="acceptBtn" runat="server" onclick="AcceptResults" 
-                        Text="Accept" />
-                    </form>
-                </div>
                 
 			</div>
             

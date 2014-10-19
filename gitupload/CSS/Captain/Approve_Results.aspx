@@ -36,6 +36,7 @@
                          <td><asp:Label ID="lblscore1" runat="server" Text="1"></asp:Label></td>
                          <td><asp:Label ID="lblopponent" runat="server" ></asp:Label></td>
                          <td><asp:Label ID="lblScore2" runat="server" Text="2"></asp:Label></td>
+                         <td><asp:Image ID="Image1" runat="server" Width="250" Height="250" /></td>
                      </tr>
                      <tr>
                          <td> 
