@@ -34,19 +34,19 @@
                        <tr>
                            <td><label> League </label></td>
                            <td><asp:DropDownList ID="dropLeague" runat="server" DataSourceID="SqlDataSource1" DataTextField="LeagueName" DataValueField="LeagueID"> </asp:DropDownList>
-                               <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="Data Source=.;Initial Catalog=contactASPDB;Integrated Security=True" ProviderName="System.Data.SqlClient" SelectCommand="SELECT * FROM [SetupLeague]"></asp:SqlDataSource>
+                               <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="workstation id=contactASPDB.mssql.somee.com;packet size=4096;user id=mamadi_k_SQLLogin_1;pwd=6sckfes4zr;data source=contactASPDB.mssql.somee.com;persist security info=False;initial catalog=contactASPDB" ProviderName="System.Data.SqlClient" SelectCommand="SELECT * FROM [SetupLeague]"></asp:SqlDataSource>
                            </td>
                         </tr>
                          <tr>
                            <td><label> Your Team </label></td>
                            <td><asp:DropDownList ID="team" runat="server" DataSourceID="SqlDataSource2" DataTextField="TeamName" DataValueField="TeamID"> </asp:DropDownList>
-                               <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="Data Source=.;Initial Catalog=contactASPDB;Integrated Security=True" ProviderName="System.Data.SqlClient" SelectCommand="SELECT * FROM [SetupTeams]"></asp:SqlDataSource>
+                               <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="workstation id=contactASPDB.mssql.somee.com;packet size=4096;user id=mamadi_k_SQLLogin_1;pwd=6sckfes4zr;data source=contactASPDB.mssql.somee.com;persist security info=False;initial catalog=contactASPDB" ProviderName="System.Data.SqlClient" SelectCommand="SELECT * FROM [SetupTeams]"></asp:SqlDataSource>
                              </td>
                         </tr>
                         <tr>
                            <td><label> Opponent </label></td>
                            <td><asp:DropDownList ID="dropOpponent" runat="server" DataSourceID="SqlDataSource3" DataTextField="TeamName" DataValueField="TeamID"> </asp:DropDownList>
-                               <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="Data Source=.;Initial Catalog=contactASPDB;Integrated Security=True" ProviderName="System.Data.SqlClient" SelectCommand="SELECT * FROM [SetupTeams]"></asp:SqlDataSource>
+                               <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="workstation id=contactASPDB.mssql.somee.com;packet size=4096;user id=mamadi_k_SQLLogin_1;pwd=6sckfes4zr;data source=contactASPDB.mssql.somee.com;persist security info=False;initial catalog=contactASPDB" ProviderName="System.Data.SqlClient" SelectCommand="SELECT * FROM [SetupTeams]"></asp:SqlDataSource>
                             </td>
                         </tr>
                         <tr>

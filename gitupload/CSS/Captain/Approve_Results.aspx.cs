@@ -9,7 +9,7 @@ using System.IO;
 
 public partial class Captain_Approve_Results : System.Web.UI.Page
 {
-    private SqlConnection sqlCon = new SqlConnection(@"Data Source=.;Initial Catalog=contactASPDB;Integrated Security=True;");
+    private SqlConnection sqlCon = new SqlConnection(@"workstation id=contactASPDB.mssql.somee.com;packet size=4096;user id=mamadi_k_SQLLogin_1;pwd=6sckfes4zr;data source=contactASPDB.mssql.somee.com;persist security info=False;initial catalog=contactASPDB;");
 
     protected void Page_Load(object sender, EventArgs e)
     {
