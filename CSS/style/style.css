@@ -15,14 +15,13 @@ body {
     font-family: 'Open Sans';
 }
 
-#element_to_pop_up,#create,#send,#league,#results,#new,#struct  
+#element_to_pop_up,#approve,#send,#league,#results,#new,#struct  
 {
     display:none;
     width: 500px;
     height: 400px;
-    border: solid 2px;
-     }
-
+   
+}
 
 
 header {
@@ -101,6 +100,10 @@ h1
     font-size: 30px;
     margin-left: 40px;
 }
+
+h3{
+    color: white;
+}
 #in
 {
     margin-left: 80px; 
@@ -128,11 +131,8 @@ h1
     overflow: hidden; 
     
 }
-table
-{
-    margin: 70px 70px 70px 110px;
-    
-}
+
+
 p {
     color: white;
 }
@@ -183,8 +183,8 @@ p {
 form {
     margin-left:auto;
     margin-right:auto;
-    width: 343px;
-    height: 333px;
+    width: 443px;
+    height: 500px;
     padding:30px;
     border: 1px solid rgba(0,0,0,.2);
     -moz-border-radius: 5px;
@@ -224,8 +224,6 @@ textarea{
 
 input {
     width: 276px;
-    height: 48px;
-    border: 1px solid rgba(255,255,255,.4);
     -moz-border-radius: 4px;
     -webkit-border-radius: 4px;
     border-radius: 4px;
@@ -235,7 +233,6 @@ input {
     display:block;
     font-family: 'Source Sans Pro', sans-serif;
     font-size:18px;
-    color:#fff;
     padding-left:20px;
     padding-right:20px;
     margin-bottom:20px;
@@ -292,7 +289,7 @@ input:focus, textarea:focus {
 	  border-radius: 4px;
 	  float:right;
     border: 1px solid #253737;
-    background: #416b68;
+    
     background: -webkit-gradient(linear, left top, left bottom, from(#6da5a3), to(#416b68));
     background: -webkit-linear-gradient(top, #6da5a3, #416b68);
     background: -moz-linear-gradient(top, #6da5a3, #416b68);

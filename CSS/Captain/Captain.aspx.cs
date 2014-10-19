@@ -11,4 +11,14 @@ public partial class Captain : System.Web.UI.Page
     {
 
     }
+
+    public void submitResults(object sender, EventArgs e)
+    { 
+        
+    }
+
+    public void AcceptResults(object sender, EventArgs e)
+    {
+
+    }
 }
