@@ -11,6 +11,7 @@
         
     </head>
 	<body id="body">
+		<form id="form1" runat="server">
 		<div id="header">
 			<div id = "logo">
 				<img src = "../images/logo.png" width = "150" height = "150" alt="img"/>
@@ -29,14 +30,36 @@
 		<div id = "wrapper">
 			
 			<div id="content">
-                <form runat="server">
-                    <table>
-                        <tr>   
-                            <td>Name and Surname</td><td> 10/12/12</td><td><asp:Button ID="accept" runat="server" Text="Accept" Height="29px" Width="74px" /></td>
-                            <td><asp:Button ID="reject" runat="server" Text="Reject" Height="26px" Width="71px" /></td>
-                        </tr>    
-                    </table>
-                </form>
+                
+			 
+			    <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="ID" DataSourceID="SqlDataSource1">
+                    <Columns>
+                        <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ShowSelectButton="True" />
+                        <asp:BoundField DataField="ID" HeaderText="ID" ReadOnly="True" SortExpression="ID" />
+                        <asp:BoundField DataField="Member" HeaderText="Member" SortExpression="Member" />
+                        <asp:BoundField DataField="Team" HeaderText="Team" SortExpression="Team" />
+                        <asp:BoundField DataField="Approved" HeaderText="Approved" SortExpression="Approved" />
+                    </Columns>
+                </asp:GridView>
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="Data Source=.;Initial Catalog=contactASPDB;Integrated Security=True" DeleteCommand="DELETE FROM [TeamMembers] WHERE [ID] = @ID" InsertCommand="INSERT INTO [TeamMembers] ([ID], [Member], [Team], [Approved]) VALUES (@ID, @Member, @Team, @Approved)" ProviderName="System.Data.SqlClient" SelectCommand="SELECT * FROM [TeamMembers]" UpdateCommand="UPDATE [TeamMembers] SET [Member] = @Member, [Team] = @Team, [Approved] = @Approved WHERE [ID] = @ID">
+                    <DeleteParameters>
+                        <asp:Parameter Name="ID" Type="Int32" />
+                    </DeleteParameters>
+                    <InsertParameters>
+                        <asp:Parameter Name="ID" Type="Int32" />
+                        <asp:Parameter Name="Member" Type="Int32" />
+                        <asp:Parameter Name="Team" Type="Int32" />
+                        <asp:Parameter Name="Approved" Type="String" />
+                    </InsertParameters>
+                    <UpdateParameters>
+                        <asp:Parameter Name="Member" Type="Int32" />
+                        <asp:Parameter Name="Team" Type="Int32" />
+                        <asp:Parameter Name="Approved" Type="String" />
+                        <asp:Parameter Name="ID" Type="Int32" />
+                    </UpdateParameters>
+                </asp:SqlDataSource>
+                
+			 
 			</div>
             
 		</div>
@@ -53,6 +76,8 @@
 		</div>
 
 		<br/>
+		
+	    </form>
 		
 	</body>
 </html>
