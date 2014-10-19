@@ -41,7 +41,7 @@
                         <asp:BoundField DataField="Approved" HeaderText="Approved" SortExpression="Approved" />
                     </Columns>
                 </asp:GridView>
-                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="Data Source=.;Initial Catalog=contactASPDB;Integrated Security=True" DeleteCommand="DELETE FROM [TeamMembers] WHERE [ID] = @ID" InsertCommand="INSERT INTO [TeamMembers] ([ID], [Member], [Team], [Approved]) VALUES (@ID, @Member, @Team, @Approved)" ProviderName="System.Data.SqlClient" SelectCommand="SELECT * FROM [TeamMembers]" UpdateCommand="UPDATE [TeamMembers] SET [Member] = @Member, [Team] = @Team, [Approved] = @Approved WHERE [ID] = @ID">
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="workstation id=contactASPDB.mssql.somee.com;packet size=4096;user id=mamadi_k_SQLLogin_1;pwd=6sckfes4zr;data source=contactASPDB.mssql.somee.com;persist security info=False;initial catalog=contactASPDB" DeleteCommand="DELETE FROM [TeamMembers] WHERE [ID] = @ID" InsertCommand="INSERT INTO [TeamMembers] ([ID], [Member], [Team], [Approved]) VALUES (@ID, @Member, @Team, @Approved)" ProviderName="System.Data.SqlClient" SelectCommand="SELECT * FROM [TeamMembers]" UpdateCommand="UPDATE [TeamMembers] SET [Member] = @Member, [Team] = @Team, [Approved] = @Approved WHERE [ID] = @ID">
                     <DeleteParameters>
                         <asp:Parameter Name="ID" Type="Int32" />
                     </DeleteParameters>
