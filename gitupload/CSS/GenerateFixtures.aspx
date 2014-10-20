@@ -1,6 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="GenerateFixtures.aspx.cs" Inherits="GenerateFixtures" %>
 <%@ Register TagPrefix="fc" TagName="menu" Src="~/WebUserControl.ascx" %>
-
 <html>
 	<head id="Head1" runat="server">
 		<link rel="stylesheet" type="text/css" href="style/style.css">
@@ -50,6 +49,8 @@
         <p>
             <asp:Label ID="Label1" runat="server" Text="Label" Visible="False" 
                 BackColor="#009933"></asp:Label>
+        &nbsp;<asp:Label ID="Label6" runat="server" Text="Label" Visible="False" 
+                BackColor="Red"></asp:Label>
         </p>
         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" 
             DataSourceID="SqlDataSource1" Visible="False">
