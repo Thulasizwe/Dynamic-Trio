@@ -19,6 +19,7 @@ public partial class GenerateFixtures : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         numberOfFixtures = 1;
+        
      }
     public int Home { get; set; }
     public int Away { get; set; }
@@ -26,8 +27,7 @@ public partial class GenerateFixtures : System.Web.UI.Page
     public string FixtureTime { get; set; }
     void CallCode(int LeagueID)
     {
-        string[] teamss = new string[GridView1.Rows.Count];
-        numberOfFixtures = Convert.ToInt32(DropDownList3.SelectedValue);
+        string[] teamss = new string[Int32.Parse(GridView1.Rows[0].Cells[2].Text)];
         gameweeks = GridView1.Rows.Count;
         gamesPerWeek = GridView1.Rows.Count;
         for (int i = 0; i < GridView1.Rows.Count; i++)
@@ -168,7 +168,6 @@ public partial class GenerateFixtures : System.Web.UI.Page
     {
         Label5.Visible = false;
         Label4.Visible = false;
-        Label3.Visible = false;
         Boolean error = false;
         if (DropDownList1.SelectedIndex == 0)
         {
@@ -182,12 +181,6 @@ public partial class GenerateFixtures : System.Web.UI.Page
             Label4.Visible = true;
             Label4.Text = "Please select either league or tournament";
         }
-        else if (DropDownList3.SelectedIndex == 0)
-        {
-            error = true;
-            Label3.Visible = true;
-            Label3.Text = "Please select the number of fixtures";
-        }
         else if (error == false)
         {
             if (DropDownList2.SelectedValue == "League")
@@ -195,6 +188,10 @@ public partial class GenerateFixtures : System.Web.UI.Page
             else if (DropDownList2.SelectedValue == "Tournament")
                 TypeOfFixtures = "Tournament";
             sqlCon.Open();
+            SqlDataSource1.SelectParameters.Clear();
+            SqlDataSource1.SelectParameters.Add("Param1", DropDownList1.SelectedValue);
+            GridView1.DataBind();
+            numberOfFixtures = Int32.Parse(GridView1.Rows[0].Cells[3].Text);
             CallCode(LeagueID);
         }
     }

@@ -45,16 +45,6 @@
 &nbsp;<asp:Label ID="Label4" runat="server" BackColor="Red" Text="Label" Visible="False"></asp:Label>
         &nbsp;</p>
         <p>
-            Select number of fixtures against each time:</p>
-                <p>
-            &nbsp;&nbsp;&nbsp;<asp:DropDownList ID="DropDownList3" runat="server" Height="25px" Width="181px">
-                <asp:ListItem></asp:ListItem>
-                <asp:ListItem>1</asp:ListItem>
-                <asp:ListItem>2</asp:ListItem>
-            </asp:DropDownList>
-&nbsp;<asp:Label ID="Label3" runat="server" BackColor="Red" Text="Label" Visible="False"></asp:Label>
-        &nbsp;&nbsp;</p>
-        <p>
             <asp:Button ID="Button1" runat="server" OnClick="Button1_Click1" Text="Generate" CssClass="btn" />
 &nbsp;&nbsp;&nbsp;</p>
         <p>
@@ -68,15 +58,23 @@
                     SortExpression="TeamID" />
                 <asp:BoundField DataField="TeamName" HeaderText="TeamName" 
                     SortExpression="TeamName" />
-                <asp:BoundField DataField="TeamCaptain" HeaderText="TeamCaptain" 
-                    SortExpression="TeamCaptain" />
-                <asp:BoundField DataField="TeamZone" HeaderText="TeamZone" 
-                    SortExpression="TeamZone" />
+                <asp:BoundField DataField="NumberOfTeams" HeaderText="Number Of Teams" 
+                    SortExpression="NumberOfTeams" />
+                <asp:BoundField DataField="GamesAgainst" HeaderText="Games Against" 
+                    SortExpression="GamesAgainst" />
             </Columns>
         </asp:GridView>
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
             ConnectionString="<%$ ConnectionStrings:contactASPDBConnectionString %>" 
-            SelectCommand="SELECT * FROM [SetupTeams]"></asp:SqlDataSource>
+            SelectCommand="SELECT T.TeamID, T.TeamName , T2.NumberOfTeams , T2.GamesAgainst	
+FROM SetupTeams AS T 
+INNER JOIN LeagueTeams AS T1 ON T1.TeamID = T.TeamID 
+INNER JOIN SetupLeague AS T2 ON T2.LeagueID = T1.LeagueID
+WHERE T1.LeagueID = @Param1 ">
+                    <SelectParameters >
+                <asp:Parameter Name="Param1" />
+            </SelectParameters>
+        </asp:SqlDataSource>
         <p>
             <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Default.aspx">Go back to home page</asp:HyperLink>
         </p>
